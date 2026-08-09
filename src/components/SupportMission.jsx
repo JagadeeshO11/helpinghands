@@ -16,7 +16,7 @@ export default function SupportMission() {
         <p className="mt-1 max-w-md text-[9px] text-white/80 sm:mt-2 sm:text-sm">
           Every contribution helps us reach another family in need.
         </p>
-        <div className="mt-4 grid grid-cols-3 gap-1.5 sm:mt-7 sm:gap-4">
+        <div className="mt-4 grid grid-cols-1 gap-2 sm:mt-7 sm:grid-cols-3 sm:gap-4">
           {donationTiers.map((tier) => {
             const active = selected === tier.id
             return (
@@ -25,12 +25,12 @@ export default function SupportMission() {
                 type="button"
                 onClick={() => setSelected(tier.id)}
                 aria-pressed={active}
-                className={`min-h-14 rounded-lg border p-2 text-center transition active:scale-95 sm:min-h-20 sm:rounded-xl sm:p-4 ${
+                className={`min-h-16 rounded-lg border p-3 text-center transition active:scale-95 sm:min-h-20 sm:rounded-xl sm:p-4 ${
                   active ? "border-accent bg-accent/20" : "border-white/25 bg-white/10 hover:bg-white/15"
                 }`}
               >
-                <span className="block text-[11px] font-extrabold sm:text-base">{tier.amount}</span>
-                <span className="mt-0.5 block text-[6px] leading-tight text-white/80 sm:mt-1 sm:text-[10px]">{tier.label}</span>
+                <span className="block text-[13px] font-extrabold sm:text-base">{tier.amount}</span>
+                <span className="mt-0.5 block text-[10px] leading-tight text-white/80 sm:mt-1 sm:text-[10px]">{tier.label}</span>
               </button>
             )
           })}

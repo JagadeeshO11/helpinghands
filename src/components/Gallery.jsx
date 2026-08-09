@@ -7,9 +7,9 @@ export default function Gallery() {
       <FadeIn className="flex items-center justify-between">
         <h2 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary sm:text-lg">Gallery</h2>
       </FadeIn>
-      <div className="mt-3 flex gap-2 overflow-x-auto pb-1 no-scrollbar sm:mt-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:overflow-visible">
+      <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-5 sm:grid-cols-4 sm:gap-4">
         {gallery.map((src, i) => (
-          <FadeIn key={src} delay={i * 0.06} className="w-[70px] shrink-0 sm:w-auto">
+          <FadeIn key={src} delay={i * 0.06}>
             <div className="aspect-square overflow-hidden rounded-lg border border-border sm:rounded-2xl">
               <img
                 src={src}
