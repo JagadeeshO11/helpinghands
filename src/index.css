@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Playfair Display", Georgia, serif;
+
+  --color-background: #ffffff;
+  --color-foreground: #263942;
+  --color-muted: #eef2f7;
+  --color-muted-foreground: #68777b;
+  --color-card: #ffffff;
+  --color-card-foreground: #263942;
+  --color-border: #e8e5de;
+
+  --color-primary: #0c3b59;
+  --color-primary-foreground: #ffffff;
+  --color-primary-dark: #072c44;
+  --color-primary-soft: #e8f4f8;
+  --color-accent: #ff8758;
+  --color-accent-foreground: #ffffff;
+  --color-accent-soft: #fff1eb;
+  --color-teal: #087884;
+  --color-teal-dark: #006474;
+  --color-cream: #fff8f2;
+  --color-ink: #263942;
+  --color-line: #e8e5de;
+  --radius: 1.25rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: white;
+  }
+}
+
+@layer components {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .page-shell {
+    width: min(100%, 1180px);
+    margin-inline: auto;
+  }
+
+  .section-gutter {
+    padding-inline: 0.75rem;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .section-gutter {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-gutter {
+    padding-inline: 2rem;
+  }
+}
