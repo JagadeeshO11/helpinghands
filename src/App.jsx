@@ -8,21 +8,46 @@ import Donate from "./pages/Donate"
 import Volunteer from "./pages/Volunteer"
 import Contact from "./pages/Contact"
 import NotFound from "./pages/NotFound"
+import AdminLayout from "./pages/admin/AdminLayout"
+import AdminDashboard from "./pages/admin/AdminDashboard"
+import AdminDonors from "./pages/admin/AdminDonors"
+import AdminVolunteers from "./pages/admin/AdminVolunteers"
+import AdminGallery from "./pages/admin/AdminGallery"
+import AdminReports from "./pages/admin/AdminReports"
+import AdminLogin from "./pages/admin/AdminLogin"
+import VolunteerLogin from "./pages/volunteer/VolunteerLogin"
+import VolunteerUpdates from "./pages/volunteer/VolunteerUpdates"
 
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/programs" element={<Programs />} />
-        <Route path="/donate" element={<Donate />} />
-        <Route path="/volunteer" element={<Volunteer />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="donors" element={<AdminDonors />} />
+          <Route path="volunteers" element={<AdminVolunteers />} />
+          <Route path="gallery" element={<AdminGallery />} />
+          <Route path="reports" element={<AdminReports />} />
+        </Route>
+        <Route path="/*" element={
+          <>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/programs" element={<Programs />} />
+              <Route path="/donate" element={<Donate />} />
+              <Route path="/volunteer" element={<Volunteer />} />
+              <Route path="/volunteer/login" element={<VolunteerLogin />} />
+              <Route path="/volunteer/updates" element={<VolunteerUpdates />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Footer />
+          </>
+        } />
       </Routes>
-      <Footer />
     </div>
   )
 }

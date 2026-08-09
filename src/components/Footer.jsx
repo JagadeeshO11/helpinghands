@@ -156,8 +156,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-4 border-t border-white/15 pt-3 text-[7px] text-white/55 sm:mt-8 sm:pt-5 sm:text-[9px]">
-          © 2026 Helping Hands Foundation. All Rights Reserved.
+        <div className="mt-4 flex items-center justify-between border-t border-white/15 pt-3 text-[7px] text-white/55 sm:mt-8 sm:pt-5 sm:text-[9px]">
+          <span>© 2026 Helping Hands Foundation. All Rights Reserved.</span>
+          <NavLink to="/admin/login" className="text-white/30 transition hover:text-white/60">Admin</NavLink>
         </div>
       </div>
 

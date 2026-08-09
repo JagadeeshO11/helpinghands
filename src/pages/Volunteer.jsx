@@ -1,6 +1,6 @@
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { Check } from "lucide-react"
+import { useNavigate } from "react-router-dom"
+import { LogIn } from "lucide-react"
 import { volunteerRoles } from "../data/content"
 import Icon from "../components/Common/Icon"
 import FadeIn from "../components/Common/FadeIn"
@@ -14,13 +14,7 @@ const STEPS = [
 ]
 
 export default function Volunteer() {
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
-  }
+  const navigate = useNavigate()
 
   return (
     <main>
@@ -40,6 +34,12 @@ export default function Volunteer() {
             <p className="mt-3 text-[10px] leading-[1.65] text-white/80 sm:mt-5 sm:text-sm lg:text-[15px]">
               Your time and skills can transform lives. Join 800+ volunteers who are already making a difference across India.
             </p>
+            <button
+              onClick={() => navigate("/volunteer/login")}
+              className="mt-5 flex items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-[9px] font-bold text-white transition hover:bg-white/10 sm:mt-6 sm:text-xs"
+            >
+              <LogIn className="size-3.5" /> Already a volunteer? Sign In
+            </button>
           </motion.div>
         </div>
       </section>
@@ -61,7 +61,7 @@ export default function Volunteer() {
       </section>
 
       {/* Roles */}
-      <section className="page-shell px-3 pb-8 sm:px-6 sm:pb-12 lg:px-8 lg:pb-16">
+      <section className="page-shell px-3 pb-10 sm:px-6 sm:pb-16 lg:px-8 lg:pb-20">
         <FadeIn><SectionHeading>Open Volunteer Roles</SectionHeading></FadeIn>
         <div className="mt-4 grid grid-cols-2 gap-2 sm:mt-6 sm:gap-4 lg:grid-cols-4">
           {volunteerRoles.map((role, i) => (
@@ -80,51 +80,6 @@ export default function Volunteer() {
             </FadeIn>
           ))}
         </div>
-      </section>
-
-      {/* Apply Form */}
-      <section className="page-shell px-3 pb-10 sm:px-6 sm:pb-16 lg:px-8 lg:pb-20">
-        <FadeIn><SectionHeading>Apply Now</SectionHeading></FadeIn>
-        <FadeIn className="mx-auto mt-4 max-w-xl sm:mt-6">
-          <form onSubmit={handleSubmit} className="rounded-2xl border border-border bg-card p-4 shadow-sm sm:rounded-3xl sm:p-8">
-            <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
-              <div>
-                <label className="mb-1.5 block text-[8px] font-semibold text-muted-foreground sm:text-xs">Full Name</label>
-                <input type="text" required placeholder="Your name" className="w-full rounded-xl border border-border bg-background px-3 py-2.5 text-[10px] text-primary placeholder:text-muted-foreground focus:border-teal focus:outline-none sm:rounded-2xl sm:py-3 sm:text-sm" />
-              </div>
-              <div>
-                <label className="mb-1.5 block text-[8px] font-semibold text-muted-foreground sm:text-xs">Email</label>
-                <input type="email" required placeholder="your@email.com" className="w-full rounded-xl border border-border bg-background px-3 py-2.5 text-[10px] text-primary placeholder:text-muted-foreground focus:border-teal focus:outline-none sm:rounded-2xl sm:py-3 sm:text-sm" />
-              </div>
-              <div>
-                <label className="mb-1.5 block text-[8px] font-semibold text-muted-foreground sm:text-xs">Phone</label>
-                <input type="tel" placeholder="+91 00000 00000" className="w-full rounded-xl border border-border bg-background px-3 py-2.5 text-[10px] text-primary placeholder:text-muted-foreground focus:border-teal focus:outline-none sm:rounded-2xl sm:py-3 sm:text-sm" />
-              </div>
-              <div>
-                <label className="mb-1.5 block text-[8px] font-semibold text-muted-foreground sm:text-xs">Area of Interest</label>
-                <select required className="w-full rounded-xl border border-border bg-background px-3 py-2.5 text-[10px] text-primary focus:border-teal focus:outline-none sm:rounded-2xl sm:py-3 sm:text-sm">
-                  <option value="">Select a role</option>
-                  {volunteerRoles.map((r) => <option key={r.id} value={r.title}>{r.title}</option>)}
-                </select>
-              </div>
-              <div className="sm:col-span-2">
-                <label className="mb-1.5 block text-[8px] font-semibold text-muted-foreground sm:text-xs">Why do you want to volunteer?</label>
-                <textarea rows={3} placeholder="Tell us about yourself..." className="w-full resize-none rounded-xl border border-border bg-background px-3 py-2.5 text-[10px] text-primary placeholder:text-muted-foreground focus:border-teal focus:outline-none sm:rounded-2xl sm:text-sm" />
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-teal py-3 text-[10px] font-bold text-white transition hover:bg-teal-dark active:scale-[0.98] sm:mt-6 sm:rounded-2xl sm:py-4 sm:text-sm"
-            >
-              {submitted ? (
-                <><Check className="size-4" /> Application Submitted!</>
-              ) : (
-                "Submit Application"
-              )}
-            </button>
-          </form>
-        </FadeIn>
       </section>
     </main>
   )
