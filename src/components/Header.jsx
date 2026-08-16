@@ -58,8 +58,8 @@ export default function Header() {
           </button>
 
           <NavLink to="/" className="group flex shrink-0 items-center gap-2 sm:gap-3">
-            <span className="grid size-36 place-items-center rounded-2xl border border-[#bfe2e4] bg-white p-1 shadow-[0_5px_18px_rgba(8,120,132,0.18)] transition duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_24px_rgba(8,120,132,0.28)] sm:size-42 lg:size-48">
-              <Logo className="size-30 sm:size-36 lg:size-42" />
+            <span className="grid size-18 place-items-center rounded-2xl border border-[#bfe2e4] bg-white p-1 shadow-[0_5px_18px_rgba(8,120,132,0.18)] transition duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_24px_rgba(8,120,132,0.28)] sm:size-21 lg:size-24">
+              <Logo className="size-15 sm:size-18 lg:size-21" />
             </span>
             <span className="leading-none">
               <span className="block font-heading text-[11px] font-extrabold tracking-[-0.02em] text-primary sm:text-[14px] lg:text-[16px]">
