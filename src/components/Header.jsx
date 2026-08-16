@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { Heart, Menu, X } from "lucide-react"
-import Logo from "./Common/Logo"
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -10,6 +9,8 @@ const NAV_LINKS = [
   { label: "Volunteer", to: "/volunteer" },
   { label: "Contact", to: "/contact" },
 ]
+
+const LOGO_URL = "https://res.cloudinary.com/dwmjz9csc/image/upload/v1786889497/9ec8064b-61d9-4e70-897d-4790e9ea2cdf-removebg-preview_ogtw6d.png"
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -58,8 +59,12 @@ export default function Header() {
           </button>
 
           <NavLink to="/" className="group flex shrink-0 items-center gap-2 sm:gap-3">
-            <span className="grid size-18 place-items-center rounded-full border border-[#bfe2e4] bg-white p-1 shadow-[0_5px_18px_rgba(8,120,132,0.18)] transition duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_24px_rgba(8,120,132,0.28)] sm:size-21 lg:size-24">
-              <Logo className="size-15 sm:size-18 lg:size-21" />
+            <span className="grid size-18 place-items-center rounded-full bg-transparent p-1 transition duration-300 group-hover:-translate-y-0.5 sm:size-21 lg:size-24">
+              <img
+                src={LOGO_URL}
+                alt="Helping Hands Foundation"
+                className="size-15 object-contain sm:size-18 lg:size-21"
+              />
             </span>
             <span className="leading-none">
               <span className="block font-heading text-[11px] font-extrabold tracking-[-0.02em] text-primary sm:text-[14px] lg:text-[16px]">
