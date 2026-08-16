@@ -42,7 +42,7 @@ export default function Header() {
         scrolled ? "shadow-md" : ""
       }`}
     >
-      <div className="page-shell flex h-[68px] items-center justify-between gap-2 px-3 sm:h-[78px] sm:px-6 lg:h-[88px] lg:px-8">
+      <div className="page-shell flex h-[75px] items-center justify-between gap-2 px-3 sm:h-[86px] lg:h-[97px] sm:px-6 lg:px-8">
         <div className="flex min-w-0 items-center gap-1.5 sm:gap-2.5">
           <button
             type="button"
@@ -58,7 +58,7 @@ export default function Header() {
           </button>
 
           <NavLink to="/" className="group flex shrink-0 items-center gap-2 sm:gap-3">
-            <span className="grid size-18 place-items-center rounded-2xl border border-[#bfe2e4] bg-white p-1 shadow-[0_5px_18px_rgba(8,120,132,0.18)] transition duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_24px_rgba(8,120,132,0.28)] sm:size-21 lg:size-24">
+            <span className="grid size-18 place-items-center rounded-full border border-[#bfe2e4] bg-white p-1 shadow-[0_5px_18px_rgba(8,120,132,0.18)] transition duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_24px_rgba(8,120,132,0.28)] sm:size-21 lg:size-24">
               <Logo className="size-15 sm:size-18 lg:size-21" />
             </span>
             <span className="leading-none">
