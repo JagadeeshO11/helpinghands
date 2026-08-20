@@ -7,6 +7,8 @@ import Programs from "./pages/Programs"
 import Donate from "./pages/Donate"
 import Volunteer from "./pages/Volunteer"
 import Contact from "./pages/Contact"
+import Teams from "./pages/Teams"
+import TeamGroup from "./pages/TeamGroup"
 import NotFound from "./pages/NotFound"
 import AdminLayout from "./pages/admin/AdminLayout"
 import AdminDashboard from "./pages/admin/AdminDashboard"
@@ -37,6 +39,8 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/programs" element={<Programs />} />
+              <Route path="/teams" element={<Teams />} />
+              <Route path="/teams/:group" element={<TeamGroup />} />
               <Route path="/donate" element={<Donate />} />
               <Route path="/volunteer" element={<Volunteer />} />
               <Route path="/volunteer/login" element={<VolunteerLogin />} />
