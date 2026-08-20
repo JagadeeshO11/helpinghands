@@ -19,34 +19,10 @@ export const mission = {
 }
 
 export const causes = [
-  {
-    id: 1,
-    icon: "graduation",
-    title: "Education",
-    color: "primary",
-    items: ["Scholarships", "School Kits", "Digital Learning"],
-  },
-  {
-    id: 2,
-    icon: "stethoscope",
-    title: "Healthcare",
-    color: "accent",
-    items: ["Medical Camps", "Blood Donation", "Medicine Support"],
-  },
-  {
-    id: 3,
-    icon: "utensils",
-    title: "Food Distribution",
-    color: "primary",
-    items: ["Daily Meals", "Ration Kits", "Emergency Relief"],
-  },
-  {
-    id: 4,
-    icon: "sparkles",
-    title: "Women Empowerment",
-    color: "accent",
-    items: ["Skill Development", "Self Help Groups", "Employment Support"],
-  },
+  { id: 1, icon: "graduation", title: "Education", color: "primary", items: ["Scholarships", "School Kits", "Digital Learning"] },
+  { id: 2, icon: "stethoscope", title: "Healthcare", color: "accent", items: ["Medical Camps", "Blood Donation", "Medicine Support"] },
+  { id: 3, icon: "utensils", title: "Food Distribution", color: "primary", items: ["Daily Meals", "Ration Kits", "Emergency Relief"] },
+  { id: 4, icon: "sparkles", title: "Women Empowerment", color: "accent", items: ["Skill Development", "Self Help Groups", "Employment Support"] },
 ]
 
 export const impact = {
@@ -60,27 +36,9 @@ export const impact = {
 }
 
 export const programs = [
-  {
-    id: 1,
-    title: "Child Education Drive",
-    description: "Supporting school children with books, uniforms and digital learning tools.",
-    image: "/images/program-education.png",
-    tag: "Education",
-  },
-  {
-    id: 2,
-    title: "Free Health Camp",
-    description: "Free health check-ups, medicines and specialist consultations for rural communities.",
-    image: "/images/program-health.png",
-    tag: "Healthcare",
-  },
-  {
-    id: 3,
-    title: "Women Skill Centre",
-    description: "Vocational training and self-employment support for underprivileged women.",
-    image: "/images/volunteers.png",
-    tag: "Empowerment",
-  },
+  { id: 1, title: "Child Education Drive", description: "Supporting school children with books, uniforms and digital learning tools.", image: "/images/program-education.png", tag: "Education" },
+  { id: 2, title: "Free Health Camp", description: "Free health check-ups, medicines and specialist consultations for rural communities.", image: "/images/program-health.png", tag: "Healthcare" },
+  { id: 3, title: "Women Skill Centre", description: "Vocational training and self-employment support for underprivileged women.", image: "/images/volunteers.png", tag: "Empowerment" },
 ]
 
 export const volunteer = {
@@ -101,54 +59,36 @@ export const gallery = [
   "/images/gallery-2.png",
   "/images/gallery-3.png",
   "/images/gallery-4.png",
+  "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1494386346843-e12284507169?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1504159506876-f8338247a14a?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1559027615-028f8e3c5a5f?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1573497161079-f3fdc0a7b6f0?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1542810634-3c6c2b7b2a52?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1509099836639-18ba02c0c4c5?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1509099836639-18ba02c0c4c5?auto=format&fit=crop&w=700&q=80&sat=-10",
+  "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=700&q=80",
 ]
 
 export const testimonials = [
-  {
-    id: 1,
-    quote:
-      "Helping Hands Foundation transformed our village. Their support in education and healthcare is truly life-changing.",
-    name: "Ramesh Kumar",
-    role: "Village Head, Rajasthan",
-    avatar: "/images/ramesh.png",
-    rating: 5,
-  },
-  {
-    id: 2,
-    quote:
-      "The medical camps reached families who had never seen a doctor before. I am grateful for their compassion and care.",
-    name: "Anita Sharma",
-    role: "Community Nurse, UP",
-    avatar: "/images/ramesh.png",
-    rating: 5,
-  },
+  { id: 1, quote: "Helping Hands Foundation transformed our village. Their support in education and healthcare is truly life-changing.", name: "Ramesh Kumar", role: "Village Head, Rajasthan", avatar: "/images/ramesh.png", rating: 5 },
+  { id: 2, quote: "The medical camps reached families who had never seen a doctor before. I am grateful for their compassion and care.", name: "Anita Sharma", role: "Community Nurse, UP", avatar: "/images/ramesh.png", rating: 5 },
+  { id: 3, quote: "The education drive gave our children confidence, learning materials and a real reason to dream bigger.", name: "Meena Devi", role: "Parent, Andhra Pradesh", avatar: "/images/ramesh.png", rating: 5 },
+  { id: 4, quote: "Volunteering with the foundation helped me turn a few free hours each week into meaningful community service.", name: "Rahul Verma", role: "Volunteer, Bengaluru", avatar: "/images/ramesh.png", rating: 5 },
+  { id: 5, quote: "Their relief work was organized, respectful and reached families when they needed support the most.", name: "Suresh Rao", role: "Community Leader, Telangana", avatar: "/images/ramesh.png", rating: 5 },
 ]
 
 export const news = [
-  {
-    id: 1,
-    title: "Blood Donation Camp",
-    date: "12 May, 2024",
-    excerpt: "Successful blood donation camp organized in partnership with local hospitals.",
-    image: "/images/news-blood.png",
-    tag: "Health",
-  },
-  {
-    id: 2,
-    title: "Back to School Drive",
-    date: "05 May, 2024",
-    excerpt: "Distributed school kits to 500+ children from rural communities.",
-    image: "/images/news-school.png",
-    tag: "Education",
-  },
-  {
-    id: 3,
-    title: "Flood Relief Program",
-    date: "28 Apr, 2024",
-    excerpt: "Emergency relief materials distributed to flood affected families.",
-    image: "/images/news-flood.png",
-    tag: "Relief",
-  },
+  { id: 1, title: "Blood Donation Camp", date: "12 May, 2024", excerpt: "Successful blood donation camp organized in partnership with local hospitals.", image: "/images/news-blood.png", tag: "Health" },
+  { id: 2, title: "Back to School Drive", date: "05 May, 2024", excerpt: "Distributed school kits to 500+ children from rural communities.", image: "/images/news-school.png", tag: "Education" },
+  { id: 3, title: "Flood Relief Program", date: "28 Apr, 2024", excerpt: "Emergency relief materials distributed to flood affected families.", image: "/images/news-flood.png", tag: "Relief" },
 ]
 
 export const partners = ["TATA Trust", "Infosys Foundation", "Reliance Foundation", "Wipro Cares"]
