@@ -46,27 +46,27 @@ export default function Header() {
 
   return (
     <>
-      <div className="relative z-[60] w-full border-b border-slate-700/50 bg-[#0d2838] text-white">
+      <div className="relative z-[60] w-full border-b border-[#04458F]/20 bg-white text-[#061D49]">
         <div className="flex min-h-10 w-full items-center gap-3 py-2 sm:min-h-11">
           <div className="flex shrink-0 items-center gap-3 pl-3 sm:pl-5 lg:pl-6">
             {SOCIAL_LINKS.map(({ label, icon: Icon }) => (
-              <span key={label} title={`${label} link coming soon`} aria-label={`${label} link coming soon`} className="text-white transition-colors hover:text-orange-400">
+              <span key={label} title={`${label} link coming soon`} aria-label={`${label} link coming soon`} className="text-[#04458F] transition-colors hover:text-[#EF9A0A]">
                 <Icon className="size-3.5 sm:size-4" aria-hidden="true" />
               </span>
             ))}
           </div>
 
-          <div className="relative hidden min-w-0 flex-1 items-center overflow-hidden md:flex">
-            <div className="flex shrink-0 items-center gap-2 rounded-md bg-[#0b1f2c] px-2.5 py-1 text-[10px] font-bold sm:text-xs">
+          <div className="hidden min-w-0 flex-1 items-center overflow-hidden md:flex">
+            <div className="flex shrink-0 items-center gap-2 border-y border-[#04458F]/20 bg-white px-2.5 py-1 text-[10px] font-bold sm:text-xs">
               <FaBolt className="text-[#EF9A0A]" aria-hidden="true" />
-              <span>News</span>
+              <span className="text-[#EF9A0A]">Latest</span>
             </div>
-            <div className="relative ml-3 min-w-0 flex-1 overflow-hidden">
-              <div className="flex w-max animate-[marquee_18s_linear_infinite] items-center whitespace-nowrap hover:[animation-play-state:paused]">
-                {[...NEWS_ITEMS, ...NEWS_ITEMS, ...NEWS_ITEMS, ...NEWS_ITEMS].map((item, index) => (
-                  <span key={`${item}-${index}`} className="inline-flex shrink-0 items-center text-xs text-white/85 transition-colors hover:text-orange-300 sm:text-sm">
+            <div className="news-marquee-viewport ml-3 bg-white">
+              <div className="news-marquee-track">
+                {[...NEWS_ITEMS, ...NEWS_ITEMS].map((item, index) => (
+                  <span key={`${item}-${index}`} className="inline-flex shrink-0 items-center text-xs text-[#061D49] transition-colors hover:text-[#04458F] sm:text-sm">
                     <span>{item}</span>
-                    <span className="mx-8 text-white/45">•</span>
+                    <span className="mx-8 text-[#04458F]">•</span>
                   </span>
                 ))}
               </div>
