@@ -14,8 +14,8 @@
   --color-card-foreground: #061d49;
   --color-border: #dce4ee;
 
-  /* Deep Navy Blue */
-  --color-primary: #061d49;
+  /* Deep Navy + Royal Blue primary system */
+  --color-primary: #04458f;
   --color-primary-foreground: #ffffff;
   --color-primary-dark: #061d49;
   --color-primary-soft: #eaf2fb;
@@ -25,7 +25,7 @@
   --color-blue-light: #04458f;
   --color-blue-gradient: linear-gradient(135deg, #061d49 0%, #04458f 100%);
 
-  /* Leaf Green */
+  /* Leaf Green + Lime Green */
   --color-green: #196823;
   --color-green-light: #5e922c;
   --color-green-soft: #eef7e9;
@@ -38,16 +38,15 @@
   --color-orange-light: #ef9a0a;
   --color-orange-gradient: linear-gradient(135deg, #ef9a0a 0%, #ef9a0a 100%);
 
-  /* Existing component compatibility tokens */
-  --color-teal: #04458f;
+  /* Existing component compatibility tokens now follow the logo palette */
+  --color-teal: #196823;
   --color-teal-dark: #061d49;
   --color-cream: #fffaf0;
   --color-ink: #061d49;
   --color-line: #dce4ee;
   --radius: 1.25rem;
 
-  /* Brand-map Tailwind utilities used by page/component code.
-     This prevents default Tailwind blue/green/orange shades from leaking into the UI. */
+  /* Brand-mapped Tailwind utility shades */
   --color-blue-50: #eaf2fb;
   --color-blue-100: #d7e7f8;
   --color-blue-200: #b4d0ed;
@@ -86,15 +85,8 @@
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
-  html {
-    scroll-behavior: smooth;
-    -webkit-tap-highlight-color: transparent;
-  }
-
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
   body {
     margin: 0;
     min-width: 320px;
@@ -104,72 +96,36 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-
-  button,
-  a {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  ::selection {
-    background: var(--color-accent);
-    color: #ffffff;
-  }
+  img { display: block; max-width: 100%; height: auto; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  ::selection { background: var(--color-accent); color: #ffffff; }
 }
 
 @layer components {
-  .font-heading {
-    font-family: var(--font-heading);
-  }
+  .font-heading { font-family: var(--font-heading); }
+  .page-shell { width: min(100%, 1180px); margin-inline: auto; }
+  .section-gutter { padding-inline: 0.75rem; }
 
-  .page-shell {
-    width: min(100%, 1180px);
-    margin-inline: auto;
-  }
+  .brand-blue-gradient { background: var(--color-blue-gradient); }
+  .brand-green-gradient { background: var(--color-green-gradient); }
+  .brand-orange-gradient { background: var(--color-orange-gradient); }
+  .brand-gradient { background: linear-gradient(135deg, #061d49 0%, #04458f 40%, #196823 72%, #5e922c 100%); }
 
-  .section-gutter {
-    padding-inline: 0.75rem;
-  }
+  /* Make legacy teal utilities visibly use the logo green family. */
+  .bg-teal { background: var(--color-green-gradient); }
+  .text-teal { color: #196823; }
+  .border-teal { border-color: #196823; }
+  .bg-teal-dark { background: #061d49; }
+  .text-teal-dark { color: #061d49; }
 
-  .brand-blue-gradient {
-    background: var(--color-blue-gradient);
-  }
+  /* Keep primary UI royal blue while deep variants stay navy. */
+  .bg-primary { background: #04458f; }
+  .text-primary { color: #04458f; }
+  .border-primary { border-color: #04458f; }
 
-  .brand-green-gradient {
-    background: var(--color-green-gradient);
-  }
-
-  .brand-orange-gradient {
-    background: var(--color-orange-gradient);
-  }
-
-  .brand-gradient {
-    background: linear-gradient(135deg, #061d49 0%, #04458f 40%, #196823 72%, #5e922c 100%);
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
-@media (min-width: 640px) {
-  .section-gutter {
-    padding-inline: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-gutter {
-    padding-inline: 2rem;
-  }
-}
+@media (min-width: 640px) { .section-gutter { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .section-gutter { padding-inline: 2rem; } }
