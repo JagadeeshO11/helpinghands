@@ -4,71 +4,23 @@
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Playfair Display", Georgia, serif;
-  --color-background: #ffffff;
-  --color-foreground: #061d49;
-  --color-muted: #f5f7fa;
-  --color-muted-foreground: #52627a;
-  --color-card: #ffffff;
-  --color-card-foreground: #061d49;
+  --color-background: #ffffff; --color-foreground: #061d49; --color-muted: #f5f7fa;
+  --color-muted-foreground: #52627a; --color-card: #ffffff; --color-card-foreground: #061d49;
   --color-border: #dce4ee;
-
-  /* Deep Navy + Vibrant Royal Blue */
-  --color-primary: #04458f;
-  --color-primary-foreground: #ffffff;
-  --color-primary-dark: #061d49;
-  --color-primary-soft: #eaf2fb;
-  --color-blue: #04458f;
-  --color-blue-light: #04458f;
-  --color-blue-gradient: linear-gradient(135deg, #061d49 0%, #04458f 100%);
-
-  /* Leaf Green + Lime Green */
-  --color-green: #196823;
-  --color-green-light: #5e922c;
-  --color-green-soft: #eef7e9;
-  --color-green-gradient: linear-gradient(135deg, #196823 0%, #5e922c 100%);
-
-  /* Golden Amber / Orange */
-  --color-accent: #ef9a0a;
-  --color-accent-foreground: #ffffff;
-  --color-accent-soft: #fff4dc;
-  --color-orange-light: #ef9a0a;
-  --color-orange-gradient: linear-gradient(135deg, #ef9a0a 0%, #ef9a0a 100%);
-
-  /* Legacy component compatibility, deliberately mapped to the logo palette */
-  --color-teal: #196823;
-  --color-teal-dark: #061d49;
-  --color-cream: #fffaf0;
-  --color-ink: #061d49;
-  --color-line: #dce4ee;
-  --radius: 1.25rem;
-
-  /* Brand-mapped Tailwind utility shades */
-  --color-blue-50: #eaf2fb; --color-blue-100: #d7e7f8; --color-blue-200: #b4d0ed;
-  --color-blue-300: #7fa9d5; --color-blue-400: #3f78b8; --color-blue-500: #04458f;
-  --color-blue-600: #04458f; --color-blue-700: #061d49; --color-blue-800: #061d49;
-  --color-blue-900: #061d49; --color-blue-950: #061d49;
-  --color-green-50: #eef7e9; --color-green-100: #dcefd4; --color-green-200: #bdddad;
-  --color-green-300: #8fbe78; --color-green-400: #5e922c; --color-green-500: #196823;
-  --color-green-600: #196823; --color-green-700: #196823; --color-green-800: #196823;
-  --color-green-900: #061d49; --color-green-950: #061d49;
-  --color-orange-50: #fff8e8; --color-orange-100: #fff0c7; --color-orange-200: #ffe19a;
-  --color-orange-300: #f8c85d; --color-orange-400: #ef9a0a; --color-orange-500: #ef9a0a;
-  --color-orange-600: #ef9a0a; --color-orange-700: #c77d00; --color-orange-800: #8f5a00;
-  --color-orange-900: #674100; --color-orange-950: #3d2700;
+  --color-primary: #04458f; --color-primary-foreground: #ffffff; --color-primary-dark: #061d49; --color-primary-soft: #eaf2fb;
+  --color-blue: #04458f; --color-blue-light: #04458f; --color-blue-gradient: linear-gradient(135deg, #061d49 0%, #04458f 100%);
+  --color-green: #196823; --color-green-light: #5e922c; --color-green-soft: #eef7e9; --color-green-gradient: linear-gradient(135deg, #196823 0%, #5e922c 100%);
+  --color-accent: #ef9a0a; --color-accent-foreground: #ffffff; --color-accent-soft: #fff4dc; --color-orange-light: #ef9a0a; --color-orange-gradient: linear-gradient(135deg, #ef9a0a 0%, #ef9a0a 100%);
+  --color-teal: #196823; --color-teal-dark: #061d49; --color-cream: #fffaf0; --color-ink: #061d49; --color-line: #dce4ee; --radius: 1.25rem;
+  --color-blue-50: #eaf2fb; --color-blue-100: #d7e7f8; --color-blue-200: #b4d0ed; --color-blue-300: #7fa9d5; --color-blue-400: #3f78b8; --color-blue-500: #04458f; --color-blue-600: #04458f; --color-blue-700: #061d49; --color-blue-800: #061d49; --color-blue-900: #061d49; --color-blue-950: #061d49;
+  --color-green-50: #eef7e9; --color-green-100: #dcefd4; --color-green-200: #bdddad; --color-green-300: #8fbe78; --color-green-400: #5e922c; --color-green-500: #196823; --color-green-600: #196823; --color-green-700: #196823; --color-green-800: #196823; --color-green-900: #061d49; --color-green-950: #061d49;
+  --color-orange-50: #fff8e8; --color-orange-100: #fff0c7; --color-orange-200: #ffe19a; --color-orange-300: #f8c85d; --color-orange-400: #ef9a0a; --color-orange-500: #ef9a0a; --color-orange-600: #ef9a0a; --color-orange-700: #c77d00; --color-orange-800: #8f5a00; --color-orange-900: #674100; --color-orange-950: #3d2700;
 }
 
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
-  body {
-    margin: 0;
-    min-width: 320px;
-    background: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
+  body { margin: 0; min-width: 320px; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
   img { display: block; max-width: 100%; height: auto; }
   button, a { -webkit-tap-highlight-color: transparent; }
   ::selection { background: var(--color-accent); color: #ffffff; }
@@ -78,24 +30,47 @@
   .font-heading { font-family: var(--font-heading); }
   .page-shell { width: min(100%, 1180px); margin-inline: auto; }
   .section-gutter { padding-inline: 0.75rem; }
-
   .brand-blue-gradient { background: var(--color-blue-gradient); }
   .brand-green-gradient { background: var(--color-green-gradient); }
   .brand-orange-gradient { background: var(--color-orange-gradient); }
   .brand-gradient { background: linear-gradient(135deg, #061d49 0%, #04458f 40%, #196823 72%, #5e922c 100%); }
-
-  /* Site-wide visual mapping for the existing page/component utility classes */
-  .bg-teal { background: var(--color-green-gradient); }
-  .text-teal { color: #196823; }
-  .border-teal { border-color: #196823; }
-  .bg-teal-dark { background: #061d49; }
-  .text-teal-dark { color: #061d49; }
-  .bg-primary { background: #04458f; }
-  .text-primary { color: #04458f; }
-  .border-primary { border-color: #04458f; }
+  .bg-teal { background: var(--color-green-gradient); } .text-teal { color: #196823; } .border-teal { border-color: #196823; }
+  .bg-teal-dark { background: #061d49; } .text-teal-dark { color: #061d49; }
+  .bg-primary { background: #04458f; } .text-primary { color: #04458f; } .border-primary { border-color: #04458f; }
   .bg-primary-soft { background: linear-gradient(135deg, #eaf2fb 0%, #f5f8fc 100%); }
   .bg-accent-soft { background: linear-gradient(135deg, #fff4dc 0%, #fff9ed 100%); }
   .bg-green-soft { background: linear-gradient(135deg, #eef7e9 0%, #f6faef 100%); }
+
+  /* Large page-level color fields. These remove the white-sea effect while preserving content. */
+  .public-page { overflow: hidden; background: #ffffff; }
+  .public-page > section { border: 0 !important; }
+  .public-page > section:first-child:not(.home-hero) {
+    background: linear-gradient(135deg, #061d49 0%, #04458f 100%) !important;
+    color: #ffffff;
+    border: 0 !important;
+  }
+  .public-page > section:first-child:not(.home-hero) h1,
+  .public-page > section:first-child:not(.home-hero) p { color: #ffffff !important; }
+  .public-page > section:first-child:not(.home-hero) p { opacity: .84; }
+  .home-hero { background: linear-gradient(135deg, #061d49 0%, #04458f 100%); color: #ffffff; border: 0 !important; }
+
+  /* Alternating full-width bands for inner page sections. */
+  .public-page > section:nth-child(3n + 2) { background: #f7fbff; }
+  .public-page > section:nth-child(3n + 3) { background: linear-gradient(135deg, #f3f9ed 0%, #ffffff 100%); }
+  .public-page > section:nth-child(3n + 4) { background: #ffffff; }
+
+  /* Home-specific visual rhythm. */
+  .home-page > section:nth-child(2) { background: #f7fbff; }
+  .home-page > section:nth-child(3) { background: #ffffff; }
+  .home-page > section:nth-child(4) { background: linear-gradient(135deg, #eef7e9 0%, #f8fbf4 100%); }
+  .home-page > section:nth-child(5) { background: linear-gradient(135deg, #196823 0%, #5e922c 100%); color: #ffffff; }
+  .home-page > section:nth-child(6) { background: #f7fbff; }
+  .home-page > section:nth-child(7) { background: #ffffff; }
+  .home-page > section:nth-child(8) { background: linear-gradient(135deg, #fff8e8 0%, #fff1d3 100%); }
+  .home-page > section:nth-child(9) { background: #ffffff; }
+  .home-page > section:nth-child(10) { background: #f3f9ed; }
+  .home-page > section:nth-child(11) { background: #ffffff; }
+  .home-page > section:nth-child(12) { background: #f7fbff; }
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
