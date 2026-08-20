@@ -13,14 +13,14 @@ const NAV_LINKS = [
 const LOGO_URL = "https://res.cloudinary.com/dwmjz9csc/image/upload/v1786889497/9ec8064b-61d9-4e70-897d-4790e9ea2cdf-removebg-preview_ogtw6d.png"
 
 const SOCIAL_LINKS = [
-  { label: "Facebook", glyph: "f" },
-  { label: "Instagram", glyph: "◎" },
-  { label: "YouTube", glyph: "▶" },
-  { label: "LinkedIn", glyph: "in" },
+  { label: "Facebook", glyph: "f", className: "text-[#1877F2]" },
+  { label: "Instagram", glyph: "◎", className: "text-[#E4405F]" },
+  { label: "YouTube", glyph: "▶", className: "text-[#FF0000]" },
+  { label: "LinkedIn", glyph: "in", className: "text-[#0A66C2]" },
 ]
 
 const NEWS_ITEMS = [
-  "Latest: Join us in building stronger communities.",
+  "Helping communities. Creating hope.",
   "Volunteer with Helping Hands and make an impact.",
   "Every contribution helps us reach another family in need.",
 ]
@@ -46,22 +46,23 @@ export default function Header() {
 
   return (
     <>
-      <div className="relative z-[60] h-[38px] overflow-hidden bg-primary text-white sm:h-[42px]">
+      <div className="relative z-[60] h-[40px] overflow-hidden border-b border-[#04458F]/20 bg-white text-primary sm:h-[44px]">
         <div className="page-shell flex h-full items-center gap-4 px-3 sm:px-6 lg:px-8">
-          <div className="hidden w-1/2 shrink-0 items-center overflow-hidden sm:flex">
-            <div className="flex min-w-max animate-[marquee_22s_linear_infinite] items-center gap-12 whitespace-nowrap text-[10px] font-semibold tracking-wide sm:text-xs">
+          <div className="relative flex w-1/2 shrink-0 items-center overflow-hidden border-l-2 border-[#04458F] sm:h-full">
+            <div className="flex min-w-max animate-[marquee_24s_linear_infinite] items-center gap-10 whitespace-nowrap pl-4 text-[9px] font-semibold sm:gap-14 sm:text-[11px]">
               {[...NEWS_ITEMS, ...NEWS_ITEMS].map((item, index) => (
                 <span key={`${item}-${index}`} className="inline-flex items-center gap-2">
-                  <span className="size-1.5 rounded-full bg-accent" />
-                  {item}
+                  <span className="font-extrabold uppercase tracking-[0.14em] text-[#EF9A0A]">Latest</span>
+                  <span className="text-[#061D49]/80">{item}</span>
+                  <span className="text-[#04458F]">•</span>
                 </span>
               ))}
             </div>
           </div>
-          <div className="ml-auto flex w-full items-center justify-end gap-3 sm:w-1/2">
-            <span className="hidden text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:block">Follow us</span>
-            {SOCIAL_LINKS.map(({ label, glyph }) => (
-              <span key={label} aria-label={`${label} link coming soon`} title={`${label} link coming soon`} className="grid size-6 cursor-default place-items-center rounded-full text-white/85 sm:size-7">
+          <div className="ml-auto flex w-1/2 items-center justify-end gap-2 border-r-2 border-[#04458F] pr-2 sm:gap-3 sm:pr-3">
+            <span className="hidden text-[9px] font-semibold uppercase tracking-[0.16em] text-[#061D49]/55 sm:block">Follow us</span>
+            {SOCIAL_LINKS.map(({ label, glyph, className }) => (
+              <span key={label} aria-label={`${label} link coming soon`} title={`${label} link coming soon`} className={`grid size-6 cursor-default place-items-center rounded-md transition sm:size-7 ${className}`}>
                 <span className="text-[11px] font-extrabold leading-none sm:text-xs" aria-hidden="true">{glyph}</span>
               </span>
             ))}
