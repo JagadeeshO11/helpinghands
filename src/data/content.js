@@ -71,10 +71,11 @@ export const gallery = [
   "https://images.unsplash.com/photo-1559027615-028f8e3c5a5f?auto=format&fit=crop&w=700&q=80",
   "https://images.unsplash.com/photo-1573497161079-f3fdc0a7b6f0?auto=format&fit=crop&w=700&q=80",
   "https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1542810634-3c6c2b7b2a52?auto=format&fit=crop&w=700&q=80",
   "https://images.unsplash.com/photo-1509099836639-18ba02c0c4c5?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1509099836639-18ba02c0c4c5?auto=format&fit=crop&w=700&q=80&sat=-10",
   "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=700&q=80",
+  "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=700&q=80",
 ]
 
 export const testimonials = [
