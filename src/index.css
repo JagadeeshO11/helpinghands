@@ -5,38 +5,40 @@
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Playfair Display", Georgia, serif;
 
-  /* Helping Hands logo palette */
+  /* Exact Helping Hands logo palette */
   --color-background: #ffffff;
   --color-foreground: #061d49;
-  --color-muted: #f3f6fa;
+  --color-muted: #f5f7fa;
   --color-muted-foreground: #52627a;
   --color-card: #ffffff;
   --color-card-foreground: #061d49;
   --color-border: #dce4ee;
 
-  /* Blue: deep navy -> vibrant royal blue */
+  /* Deep Navy Blue */
   --color-primary: #061d49;
   --color-primary-foreground: #ffffff;
   --color-primary-dark: #061d49;
   --color-primary-soft: #eaf2fb;
+
+  /* Vibrant Royal Blue */
   --color-blue: #04458f;
-  --color-blue-light: #2f73bd;
+  --color-blue-light: #04458f;
   --color-blue-gradient: linear-gradient(135deg, #061d49 0%, #04458f 100%);
 
-  /* Green: leaf green -> lime/chartreuse */
+  /* Leaf Green */
   --color-green: #196823;
   --color-green-light: #5e922c;
   --color-green-soft: #eef7e9;
   --color-green-gradient: linear-gradient(135deg, #196823 0%, #5e922c 100%);
 
-  /* Orange: golden amber */
+  /* Golden Amber / Orange */
   --color-accent: #ef9a0a;
   --color-accent-foreground: #ffffff;
   --color-accent-soft: #fff4dc;
-  --color-orange-light: #f5b83b;
-  --color-orange-gradient: linear-gradient(135deg, #ef9a0a 0%, #f5b83b 100%);
+  --color-orange-light: #ef9a0a;
+  --color-orange-gradient: linear-gradient(135deg, #ef9a0a 0%, #ef9a0a 100%);
 
-  /* Compatibility tokens used throughout the existing UI */
+  /* Existing component compatibility tokens now mapped to logo colors */
   --color-teal: #04458f;
   --color-teal-dark: #061d49;
   --color-cream: #fffaf0;
@@ -109,7 +111,7 @@
   }
 
   .brand-gradient {
-    background: linear-gradient(135deg, #061d49 0%, #04458f 42%, #196823 72%, #5e922c 100%);
+    background: linear-gradient(135deg, #061d49 0%, #04458f 40%, #196823 72%, #5e922c 100%);
   }
 
   .no-scrollbar::-webkit-scrollbar {
