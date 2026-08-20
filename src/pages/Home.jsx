@@ -13,7 +13,7 @@ import Partners from "../components/Partners"
 
 export default function Home() {
   return (
-    <main>
+    <main className="public-page home-page">
       <Hero />
       <Stats />
       <Mission />
