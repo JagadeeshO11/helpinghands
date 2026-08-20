@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom"
+import { useEffect } from "react"
+import { Routes, Route, useLocation } from "react-router-dom"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from "./pages/Home"
@@ -26,9 +27,18 @@ import AdminLogin from "./pages/admin/AdminLogin"
 import VolunteerLogin from "./pages/volunteer/VolunteerLogin"
 import VolunteerUpdates from "./pages/volunteer/VolunteerUpdates"
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" })
+  }, [pathname])
+  return null
+}
+
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <ScrollToTop />
       <Routes>
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminLayout />}>
