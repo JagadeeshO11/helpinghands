@@ -39,7 +39,7 @@
   .public-page > section + section { border-top: 0 !important; }
 
   .home-page > section.page-shell { width: 100% !important; max-width: none !important; margin-inline: 0 !important; padding-left: max(1rem, calc((100vw - 1320px) / 2)) !important; padding-right: max(1rem, calc((100vw - 1320px) / 2)) !important; }
-  .home-page > section.home-hero { padding-left: 0 !important; padding-right: 0 !important; }
+  .home-page > section.home-hero { padding-left: 0 !important; padding-right: 0 !important; padding-block: 0 !important; }
   .home-page > section.home-hero > .page-shell { width: min(calc(100% - 2rem), 1320px); margin-inline: auto; padding-left: 0; padding-right: 0; }
 
   .brand-blue-gradient { background: var(--color-blue-gradient); }
