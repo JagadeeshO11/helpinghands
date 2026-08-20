@@ -1,6 +1,50 @@
+import { useEffect, useRef, useState } from "react"
 import { stats } from "../data/content"
 import Icon from "./Common/Icon"
 import FadeIn from "./Common/FadeIn"
+
+function CountUp({ value }) {
+  const [display, setDisplay] = useState("0")
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const match = String(value).match(/^(.*?)([\d,]+)(.*)$/)
+    if (!match) {
+      setDisplay(value)
+      return
+    }
+
+    const [, prefix, numeric, suffix] = match
+    const target = Number(numeric.replace(/,/g, ""))
+    let frame
+    let start
+    const duration = 1500
+
+    const step = (time) => {
+      if (!start) start = time
+      const progress = Math.min((time - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      const current = Math.floor(target * eased)
+      setDisplay(`${prefix}${current.toLocaleString("en-IN")}${suffix}`)
+      if (progress < 1) frame = requestAnimationFrame(step)
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        frame = requestAnimationFrame(step)
+        observer.disconnect()
+      }
+    }, { threshold: 0.35 })
+
+    if (ref.current) observer.observe(ref.current)
+    return () => {
+      observer.disconnect()
+      if (frame) cancelAnimationFrame(frame)
+    }
+  }, [value])
+
+  return <span ref={ref}>{display}</span>
+}
 
 export default function Stats() {
   return (
@@ -14,7 +58,7 @@ export default function Stats() {
                   <Icon name={stat.icon} className="size-4 sm:size-5" />
                 </span>
                 <span className="leading-tight">
-                  <span className="block font-heading text-lg font-extrabold text-primary sm:text-xl lg:text-2xl">{stat.value}</span>
+                  <span className="block font-heading text-lg font-extrabold text-primary sm:text-xl lg:text-2xl"><CountUp value={stat.value} /></span>
                   <span className="mt-1 block text-[10px] text-muted-foreground sm:text-xs">{stat.label}</span>
                 </span>
               </FadeIn>
