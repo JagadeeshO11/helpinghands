@@ -16,10 +16,17 @@ export default function CampaignPopup() {
   const [active, setActive] = useState(0)
 
   useEffect(() => {
+    // Load all campaign images once when the app mounts. Later rotations reuse browser cache.
+    CAMPAIGNS.forEach(({ image }) => {
+      const img = new Image()
+      img.src = image
+    })
+
     const openTimer = window.setTimeout(() => setOpen(true), 900)
     const rotationTimer = window.setInterval(() => {
       setActive((current) => (current + 1) % CAMPAIGNS.length)
     }, 3000)
+
     return () => {
       window.clearTimeout(openTimer)
       window.clearInterval(rotationTimer)
@@ -30,12 +37,12 @@ export default function CampaignPopup() {
   const campaign = CAMPAIGNS[active]
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-primary/50 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="campaign-popup-title">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-primary/50 p-4" role="dialog" aria-modal="true" aria-labelledby="campaign-popup-title">
       <div className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-white/60 bg-card shadow-2xl">
         <button type="button" onClick={() => setOpen(false)} aria-label="Close campaign popup" className="absolute right-3 top-3 z-20 grid size-9 place-items-center rounded-full bg-white/90 text-primary shadow-sm transition hover:scale-105 hover:bg-white"><X className="size-4" /></button>
         <div className="h-2 bg-gradient-to-r from-[#04458F] via-[#5E922C] to-[#EF9A0A]" />
         <div className="relative aspect-[16/8] overflow-hidden bg-muted">
-          <img key={campaign.image} src={campaign.image} alt={campaign.name} className="h-full w-full object-cover transition-opacity duration-500" onError={(event) => { event.currentTarget.src = "/images/hero-girl.png" }} />
+          <img src={campaign.image} alt={campaign.name} className="h-full w-full object-cover transition-opacity duration-500" onError={(event) => { event.currentTarget.src = "/images/hero-girl.png" }} />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/75 via-primary/10 to-transparent" />
           <span className="absolute bottom-4 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.16em] text-accent sm:text-xs"><Heart className="size-3.5 fill-current" /> Featured Campaign</span>
         </div>
