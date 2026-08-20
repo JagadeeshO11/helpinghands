@@ -47,21 +47,21 @@ export default function Header() {
   return (
     <>
       <div className="relative z-[60] w-full border-b border-[#04458F]/20 bg-white text-[#061D49]">
-        <div className="flex min-h-10 w-full items-center gap-3 py-2 sm:min-h-11">
-          <div className="flex shrink-0 items-center gap-3 pl-3 sm:pl-5 lg:pl-6">
+        <div className="flex min-h-10 w-full items-stretch sm:min-h-11">
+          <div className="flex shrink-0 items-center gap-3 bg-gradient-to-r from-[#196823] to-[#5E922C] px-3 text-white sm:px-5 lg:px-6">
             {SOCIAL_LINKS.map(({ label, icon: Icon }) => (
-              <span key={label} title={`${label} link coming soon`} aria-label={`${label} link coming soon`} className="text-[#04458F] transition-colors hover:text-[#EF9A0A]">
+              <span key={label} title={`${label} link coming soon`} aria-label={`${label} link coming soon`} className="transition-colors hover:text-[#EF9A0A]">
                 <Icon className="size-3.5 sm:size-4" aria-hidden="true" />
               </span>
             ))}
           </div>
 
-          <div className="hidden min-w-0 flex-1 items-center overflow-hidden md:flex">
-            <div className="flex shrink-0 items-center gap-2 border-y border-[#04458F]/20 bg-white px-2.5 py-1 text-[10px] font-bold sm:text-xs">
+          <div className="hidden min-w-0 flex-1 items-center overflow-hidden bg-white md:flex">
+            <div className="flex h-full shrink-0 items-center gap-2 border-y border-[#04458F]/20 bg-white px-2.5 py-1 text-[10px] font-bold sm:text-xs">
               <FaBolt className="text-[#EF9A0A]" aria-hidden="true" />
               <span className="text-[#EF9A0A]">Latest</span>
             </div>
-            <div className="news-marquee-viewport ml-3 bg-white">
+            <div className="news-marquee-viewport bg-white">
               <div className="news-marquee-track">
                 {[...NEWS_ITEMS, ...NEWS_ITEMS].map((item, index) => (
                   <span key={`${item}-${index}`} className="inline-flex shrink-0 items-center text-xs text-[#061D49] transition-colors hover:text-[#04458F] sm:text-sm">
@@ -73,15 +73,15 @@ export default function Header() {
             </div>
           </div>
 
-          <a href="tel:+919818398199" className="mr-3 flex shrink-0 items-center gap-2 rounded-md bg-[#EF9A0A] px-3 py-1.5 text-xs font-semibold text-white shadow-md transition-all hover:bg-orange-600 sm:mr-5 sm:text-sm lg:mr-6">
+          <a href="tel:+919818398199" className="flex shrink-0 items-center gap-2 bg-gradient-to-r from-[#196823] to-[#5E922C] px-3 text-xs font-semibold text-white transition-all hover:text-[#EF9A0A] sm:px-5 sm:text-sm lg:px-6">
             <FaPhoneAlt className="size-3" aria-hidden="true" />
             <span>+91 98183 98199</span>
           </a>
         </div>
       </div>
 
-      <header className={`relative sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur-md transition-shadow duration-200 ${scrolled ? "shadow-md" : ""}`}>
-        <div className="page-shell flex h-[75px] items-center justify-between gap-2 px-3 sm:h-[86px] lg:h-[97px] sm:px-6 lg:px-8">
+      <header className={`relative sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur-md transition-shadow duration-200 ${scrolled ? "shadow-md" : ""}`}>
+        <div className="flex h-[75px] w-full items-center justify-between gap-2 px-3 sm:h-[86px] sm:px-5 lg:h-[97px] lg:px-6">
           <div className="flex min-w-0 items-center gap-1.5 sm:gap-2.5">
             <button type="button" onClick={() => setOpen((v) => !v)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} className="grid size-9 shrink-0 place-items-center rounded-xl text-teal transition hover:bg-primary-soft focus-visible:outline-2 focus-visible:outline-accent lg:hidden">
               <span className="relative size-5"><Menu className={`absolute inset-0 size-5 transition-all duration-200 ${open ? "rotate-90 opacity-0" : "rotate-0 opacity-100"}`} /><X className={`absolute inset-0 size-5 transition-all duration-200 ${open ? "rotate-0 opacity-100" : "-rotate-90 opacity-0"}`} /></span>
