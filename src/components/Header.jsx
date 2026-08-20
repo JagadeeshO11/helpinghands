@@ -5,7 +5,7 @@ import { FaFacebookF, FaInstagram, FaYoutube, FaBolt, FaPhoneAlt } from "react-i
 const NAV_LINKS = [
  {label:"Home",to:"/"},
  {label:"About Us",to:"/about",dropdown:true,menu:[{label:"About Us",to:"/about"},{label:"Leadership",to:"/about/leadership"},{label:"Reports",to:"/about/reports"},{label:"Certificates",to:"/about/certificates",nested:true,children:[{label:"Registration",to:"/about/certificates/registration"},{label:"12A",to:"/about/certificates/12a"},{label:"80G",to:"/about/certificates/80g"},{label:"NGO Darpan",to:"/about/certificates/ngo-darpan"}]},{label:"Legal & Terms",to:"/about/legal-terms"}]},
- {label:"Programs",to:"/programs"},
+ {label:"Programs",to:"/programs"},{label:"Campaigns",to:"/campaigns"},
  {label:"Teams",to:"/teams",dropdown:true,menu:[{label:"All Teams",to:"/teams"},{label:"Management Team",to:"/teams/management"},{label:"General Members",to:"/teams/members"},{label:"Valued Donors",to:"/teams/donors"},{label:"Volunteers",to:"/teams/volunteers"}]},
  {label:"Events & News",to:"/events",dropdown:true,menu:[{label:"Upcoming Events",to:"/events#upcoming"},{label:"News & Updates",to:"/events#news"}]},
  {label:"Resources",to:"/resources",dropdown:true,menu:[{label:"Photos",to:"/resources/photos"},{label:"Videos",to:"/resources/videos"},{label:"Achievements & Awards",to:"/resources/achievements-awards"},{label:"Press & Stories",to:"/resources/press-stories"}]},
