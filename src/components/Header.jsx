@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { Heart, Menu, X } from "lucide-react"
+import { FaFacebookF, FaInstagram, FaYoutube, FaBolt, FaPhoneAlt } from "react-icons/fa"
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -13,10 +14,9 @@ const NAV_LINKS = [
 const LOGO_URL = "https://res.cloudinary.com/dwmjz9csc/image/upload/v1786889497/9ec8064b-61d9-4e70-897d-4790e9ea2cdf-removebg-preview_ogtw6d.png"
 
 const SOCIAL_LINKS = [
-  { label: "Facebook", glyph: "f", className: "text-[#1877F2]" },
-  { label: "Instagram", glyph: "◎", className: "text-[#E4405F]" },
-  { label: "YouTube", glyph: "▶", className: "text-[#FF0000]" },
-  { label: "LinkedIn", glyph: "in", className: "text-[#0A66C2]" },
+  { label: "Facebook", icon: FaFacebookF },
+  { label: "Instagram", icon: FaInstagram },
+  { label: "YouTube", icon: FaYoutube },
 ]
 
 const NEWS_ITEMS = [
@@ -46,27 +46,37 @@ export default function Header() {
 
   return (
     <>
-      <div className="relative z-[60] h-[40px] overflow-hidden border-b border-[#04458F]/20 bg-white text-primary sm:h-[44px]">
-        <div className="page-shell flex h-full items-center gap-4 px-3 sm:px-6 lg:px-8">
-          <div className="relative flex w-1/2 shrink-0 items-center overflow-hidden border-l-2 border-[#04458F] sm:h-full">
-            <div className="flex min-w-max animate-[marquee_24s_linear_infinite] items-center gap-10 whitespace-nowrap pl-4 text-[9px] font-semibold sm:gap-14 sm:text-[11px]">
-              {[...NEWS_ITEMS, ...NEWS_ITEMS].map((item, index) => (
-                <span key={`${item}-${index}`} className="inline-flex items-center gap-2">
-                  <span className="font-extrabold uppercase tracking-[0.14em] text-[#EF9A0A]">Latest</span>
-                  <span className="text-[#061D49]/80">{item}</span>
-                  <span className="text-[#04458F]">•</span>
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="ml-auto flex w-1/2 items-center justify-end gap-2 border-r-2 border-[#04458F] pr-2 sm:gap-3 sm:pr-3">
-            <span className="hidden text-[9px] font-semibold uppercase tracking-[0.16em] text-[#061D49]/55 sm:block">Follow us</span>
-            {SOCIAL_LINKS.map(({ label, glyph, className }) => (
-              <span key={label} aria-label={`${label} link coming soon`} title={`${label} link coming soon`} className={`grid size-6 cursor-default place-items-center rounded-md transition sm:size-7 ${className}`}>
-                <span className="text-[11px] font-extrabold leading-none sm:text-xs" aria-hidden="true">{glyph}</span>
+      <div className="relative z-[60] w-full border-b border-slate-700/50 bg-[#0d2838] text-white">
+        <div className="page-shell flex min-h-10 items-center justify-between gap-3 px-4 py-2 sm:min-h-11 sm:px-6 lg:px-8">
+          <div className="flex shrink-0 items-center space-x-3">
+            {SOCIAL_LINKS.map(({ label, icon: Icon }) => (
+              <span key={label} title={`${label} link coming soon`} aria-label={`${label} link coming soon`} className="text-white transition-colors hover:text-orange-400">
+                <Icon className="size-3.5 sm:size-4" aria-hidden="true" />
               </span>
             ))}
           </div>
+
+          <div className="relative hidden min-w-0 max-w-2xl flex-1 items-center overflow-hidden md:flex md:mx-6">
+            <div className="flex shrink-0 items-center gap-2 rounded-md bg-[#0b1f2c] px-2.5 py-1 text-[10px] font-bold sm:text-xs">
+              <FaBolt className="text-[#EF9A0A]" aria-hidden="true" />
+              <span>News</span>
+            </div>
+            <div className="relative ml-3 min-w-0 flex-1 overflow-hidden">
+              <div className="flex w-max animate-[marquee_25s_linear_infinite] items-center whitespace-nowrap hover:[animation-play-state:paused]">
+                {[...NEWS_ITEMS, ...NEWS_ITEMS].map((item, index) => (
+                  <span key={`${item}-${index}`} className="inline-flex items-center text-xs text-white/85 transition-colors hover:text-orange-300 sm:text-sm">
+                    <span>{item}</span>
+                    <span className="mx-6 text-white/45">•</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:+919818398199" className="flex shrink-0 items-center gap-2 rounded-md bg-[#EF9A0A] px-3 py-1.5 text-xs font-semibold text-white shadow-md transition-all hover:bg-orange-600 sm:text-sm">
+            <FaPhoneAlt className="size-3" aria-hidden="true" />
+            <span>+91 98183 98199</span>
+          </a>
         </div>
       </div>
 
