@@ -5,29 +5,43 @@
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Playfair Display", Georgia, serif;
 
-  /* Helping Hands brand palette, centralized for the whole application. */
+  /* Helping Hands logo palette */
   --color-background: #ffffff;
-  --color-foreground: #24343b;
-  --color-muted: #f1f5f4;
-  --color-muted-foreground: #66777a;
+  --color-foreground: #061d49;
+  --color-muted: #f3f6fa;
+  --color-muted-foreground: #52627a;
   --color-card: #ffffff;
-  --color-card-foreground: #24343b;
-  --color-border: #dfe9e7;
+  --color-card-foreground: #061d49;
+  --color-border: #dce4ee;
 
-  --color-primary: #0f5f68;
+  /* Blue: deep navy -> vibrant royal blue */
+  --color-primary: #061d49;
   --color-primary-foreground: #ffffff;
-  --color-primary-dark: #08484f;
-  --color-primary-soft: #e8f5f3;
+  --color-primary-dark: #061d49;
+  --color-primary-soft: #eaf2fb;
+  --color-blue: #04458f;
+  --color-blue-light: #2f73bd;
+  --color-blue-gradient: linear-gradient(135deg, #061d49 0%, #04458f 100%);
 
-  --color-accent: #ef8b3a;
+  /* Green: leaf green -> lime/chartreuse */
+  --color-green: #196823;
+  --color-green-light: #5e922c;
+  --color-green-soft: #eef7e9;
+  --color-green-gradient: linear-gradient(135deg, #196823 0%, #5e922c 100%);
+
+  /* Orange: golden amber */
+  --color-accent: #ef9a0a;
   --color-accent-foreground: #ffffff;
-  --color-accent-soft: #fff1e4;
+  --color-accent-soft: #fff4dc;
+  --color-orange-light: #f5b83b;
+  --color-orange-gradient: linear-gradient(135deg, #ef9a0a 0%, #f5b83b 100%);
 
-  --color-teal: #087884;
-  --color-teal-dark: #075a63;
-  --color-cream: #fffaf4;
-  --color-ink: #24343b;
-  --color-line: #dfe9e7;
+  /* Compatibility tokens used throughout the existing UI */
+  --color-teal: #04458f;
+  --color-teal-dark: #061d49;
+  --color-cream: #fffaf0;
+  --color-ink: #061d49;
+  --color-line: #dce4ee;
   --radius: 1.25rem;
 }
 
@@ -80,6 +94,22 @@
 
   .section-gutter {
     padding-inline: 0.75rem;
+  }
+
+  .brand-blue-gradient {
+    background: var(--color-blue-gradient);
+  }
+
+  .brand-green-gradient {
+    background: var(--color-green-gradient);
+  }
+
+  .brand-orange-gradient {
+    background: var(--color-orange-gradient);
+  }
+
+  .brand-gradient {
+    background: linear-gradient(135deg, #061d49 0%, #04458f 42%, #196823 72%, #5e922c 100%);
   }
 
   .no-scrollbar::-webkit-scrollbar {
