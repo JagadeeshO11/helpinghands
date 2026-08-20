@@ -47,8 +47,8 @@ export default function Header() {
   return (
     <>
       <div className="relative z-[60] w-full border-b border-slate-700/50 bg-[#0d2838] text-white">
-        <div className="page-shell flex min-h-10 items-center justify-between gap-3 px-4 py-2 sm:min-h-11 sm:px-6 lg:px-8">
-          <div className="flex shrink-0 items-center space-x-3">
+        <div className="flex min-h-10 w-full items-center gap-3 py-2 sm:min-h-11">
+          <div className="flex shrink-0 items-center gap-3 pl-3 sm:pl-5 lg:pl-6">
             {SOCIAL_LINKS.map(({ label, icon: Icon }) => (
               <span key={label} title={`${label} link coming soon`} aria-label={`${label} link coming soon`} className="text-white transition-colors hover:text-orange-400">
                 <Icon className="size-3.5 sm:size-4" aria-hidden="true" />
@@ -56,24 +56,24 @@ export default function Header() {
             ))}
           </div>
 
-          <div className="relative hidden min-w-0 max-w-2xl flex-1 items-center overflow-hidden md:flex md:mx-6">
+          <div className="relative hidden min-w-0 flex-1 items-center overflow-hidden md:flex">
             <div className="flex shrink-0 items-center gap-2 rounded-md bg-[#0b1f2c] px-2.5 py-1 text-[10px] font-bold sm:text-xs">
               <FaBolt className="text-[#EF9A0A]" aria-hidden="true" />
               <span>News</span>
             </div>
             <div className="relative ml-3 min-w-0 flex-1 overflow-hidden">
-              <div className="flex w-max animate-[marquee_25s_linear_infinite] items-center whitespace-nowrap hover:[animation-play-state:paused]">
-                {[...NEWS_ITEMS, ...NEWS_ITEMS].map((item, index) => (
-                  <span key={`${item}-${index}`} className="inline-flex items-center text-xs text-white/85 transition-colors hover:text-orange-300 sm:text-sm">
+              <div className="flex w-max animate-[marquee_18s_linear_infinite] items-center whitespace-nowrap hover:[animation-play-state:paused]">
+                {[...NEWS_ITEMS, ...NEWS_ITEMS, ...NEWS_ITEMS, ...NEWS_ITEMS].map((item, index) => (
+                  <span key={`${item}-${index}`} className="inline-flex shrink-0 items-center text-xs text-white/85 transition-colors hover:text-orange-300 sm:text-sm">
                     <span>{item}</span>
-                    <span className="mx-6 text-white/45">•</span>
+                    <span className="mx-8 text-white/45">•</span>
                   </span>
                 ))}
               </div>
             </div>
           </div>
 
-          <a href="tel:+919818398199" className="flex shrink-0 items-center gap-2 rounded-md bg-[#EF9A0A] px-3 py-1.5 text-xs font-semibold text-white shadow-md transition-all hover:bg-orange-600 sm:text-sm">
+          <a href="tel:+919818398199" className="mr-3 flex shrink-0 items-center gap-2 rounded-md bg-[#EF9A0A] px-3 py-1.5 text-xs font-semibold text-white shadow-md transition-all hover:bg-orange-600 sm:mr-5 sm:text-sm lg:mr-6">
             <FaPhoneAlt className="size-3" aria-hidden="true" />
             <span>+91 98183 98199</span>
           </a>
