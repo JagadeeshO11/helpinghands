@@ -9,7 +9,7 @@ export default function Testimonials() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActive((current) => (current + 1) % testimonials.length)
-    }, 3200)
+    }, 3600)
     return () => clearInterval(timer)
   }, [])
 
@@ -17,68 +17,44 @@ export default function Testimonials() {
     <section className="w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <div className="mx-auto w-full max-w-[1320px]">
         <FadeIn>
-          <h2 className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary sm:text-lg">
-            What People Say
-          </h2>
+          <h2 className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary sm:text-lg">What People Say</h2>
         </FadeIn>
 
-        <div className="relative mx-auto mt-8 h-[370px] max-w-[980px] sm:h-[350px] lg:mt-10">
+        <div className="relative mx-auto mt-7 h-[390px] w-full max-w-[1180px] sm:mt-9 sm:h-[350px]">
           {testimonials.map((item, index) => {
             const offset = (index - active + testimonials.length) % testimonials.length
-            const visible = offset <= 3
-            const isActive = offset === 0
-            const direction = offset % 2 === 0 ? 1 : -1
-            const depth = Math.min(offset, 3)
-            const x = isActive ? 0 : direction * (depth * 40)
-            const scale = isActive ? 1 : 1 - depth * 0.055
-            const opacity = isActive ? 1 : 0.55 - depth * 0.1
+            const isCenter = offset === 0
+            const isRight = offset === 1
+            const isLeft = offset === testimonials.length - 1
+            const isVisible = isCenter || isRight || isLeft
 
             return (
               <article
                 key={item.id}
                 onClick={() => setActive(index)}
-                className="absolute left-1/2 top-1/2 w-[92%] max-w-[510px] cursor-pointer rounded-3xl border border-border bg-[#fffdfa] p-6 shadow-xl transition-all duration-700 ease-out sm:p-8"
-                style={{
-                  transform: `translate(-50%, -50%) translateX(${x}px) scale(${scale})`,
-                  opacity: visible ? opacity : 0,
-                  zIndex: 40 - depth,
-                  pointerEvents: visible ? "auto" : "none",
-                  visibility: visible ? "visible" : "hidden",
-                }}
-                onMouseEnter={(event) => {
-                  if (!isActive) {
-                    event.currentTarget.style.transform = `translate(-50%, -50%) translateX(${x}px) scale(${scale + 0.035})`
-                    event.currentTarget.style.zIndex = "45"
-                    event.currentTarget.style.opacity = "0.9"
-                  }
-                }}
-                onMouseLeave={(event) => {
-                  event.currentTarget.style.transform = `translate(-50%, -50%) translateX(${x}px) scale(${scale})`
-                  event.currentTarget.style.zIndex = String(40 - depth)
-                  event.currentTarget.style.opacity = String(opacity)
-                }}
+                aria-hidden={!isVisible}
+                className={`absolute left-1/2 top-1/2 h-[260px] w-[min(86vw,480px)] -translate-y-1/2 rounded-3xl border border-border bg-[#fffdfa] p-6 shadow-xl transition-[transform,opacity,filter] duration-700 ease-out sm:h-[270px] sm:p-7 ${
+                  isCenter
+                    ? "z-30 -translate-x-1/2 scale-100 opacity-100 blur-0"
+                    : isRight
+                      ? "z-20 translate-x-[calc(-50%+300px)] scale-[0.88] opacity-55 blur-[0.3px]"
+                      : isLeft
+                        ? "z-20 translate-x-[calc(-50%-300px)] scale-[0.88] opacity-55 blur-[0.3px]"
+                        : "pointer-events-none z-0 -translate-x-1/2 scale-[0.72] opacity-0"
+                } ${isVisible ? "cursor-pointer hover:z-40 hover:scale-[0.93] hover:opacity-85" : ""} ${isCenter ? "hover:scale-[1.015]" : ""}`}
               >
-                <Quote className="size-8 text-teal/50" aria-hidden="true" />
-                <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
-                  {item.quote}
-                </p>
-                <div className="mt-6 flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={item.avatar}
-                      alt={item.name}
-                      className="size-11 rounded-full border-2 border-primary-soft object-cover sm:size-13"
-                      loading="lazy"
-                    />
-                    <div>
-                      <p className="text-sm font-bold text-primary">{item.name}</p>
-                      <p className="mt-1 text-xs text-muted-foreground">{item.role}</p>
+                <Quote className="size-7 text-teal/50 sm:size-8" aria-hidden="true" />
+                <p className="mt-3 line-clamp-4 text-sm leading-6 text-muted-foreground sm:text-[15px] sm:leading-7">{item.quote}</p>
+                <div className="mt-5 flex items-center justify-between gap-3">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <img src={item.avatar} alt={item.name} className="size-10 shrink-0 rounded-full border-2 border-primary-soft object-cover sm:size-11" loading="lazy" />
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-bold text-primary">{item.name}</p>
+                      <p className="mt-1 truncate text-xs text-muted-foreground">{item.role}</p>
                     </div>
                   </div>
-                  <div className="flex gap-1" aria-label={`${item.rating} out of 5 stars`}>
-                    {Array.from({ length: item.rating }).map((_, star) => (
-                      <Star key={star} className="size-3.5 fill-accent text-accent" />
-                    ))}
+                  <div className="flex shrink-0 gap-0.5" aria-label={`${item.rating} out of 5 stars`}>
+                    {Array.from({ length: item.rating }).map((_, star) => <Star key={star} className="size-3 fill-accent text-accent sm:size-3.5" />)}
                   </div>
                 </div>
               </article>
@@ -88,15 +64,7 @@ export default function Testimonials() {
 
         <div className="flex justify-center gap-2">
           {testimonials.map((item, index) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setActive(index)}
-              aria-label={`Show testimonial ${index + 1}`}
-              className={`h-2 rounded-full transition-all ${
-                index === active ? "w-7 bg-teal" : "w-2 bg-teal/25"
-              }`}
-            />
+            <button key={item.id} type="button" onClick={() => setActive(index)} aria-label={`Show testimonial ${index + 1}`} className={`h-2 rounded-full transition-all ${index === active ? "w-7 bg-teal" : "w-2 bg-teal/25"}`} />
           ))}
         </div>
       </div>
