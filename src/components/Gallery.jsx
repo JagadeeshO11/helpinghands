@@ -1,21 +1,31 @@
+import { motion } from "framer-motion"
 import { gallery } from "../data/content"
 import FadeIn from "./Common/FadeIn"
-import AutoSlider from "./Common/AutoSlider"
 
-function GalleryRow({ items, reverse = false, duration = 28, rowIndex = 0 }) {
+function GalleryColumn({ items, reverse = false, columnIndex = 0 }) {
+  const doubled = [...items, ...items]
+
   return (
-    <div className="overflow-hidden">
-      <AutoSlider duration={duration} gap="gap-3 sm:gap-4" reverse={reverse}>
-        {items.map((src, i) => (
+    <div className="h-[420px] overflow-hidden sm:h-[500px] lg:h-[560px]">
+      <motion.div
+        className="flex flex-col gap-3 sm:gap-4"
+        animate={{ y: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
+        transition={{
+          duration: 22 + columnIndex * 3,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      >
+        {doubled.map((src, i) => (
           <FadeIn
-            key={`${src}-${rowIndex}-${i}`}
-            delay={i * 0.04}
-            className="w-[170px] shrink-0 sm:w-[220px] lg:w-[260px]"
+            key={`${src}-${columnIndex}-${i}`}
+            delay={(i % items.length) * 0.04}
+            className="w-full shrink-0"
           >
             <div className="group aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm sm:rounded-3xl">
               <img
                 src={src}
-                alt={`Helping Hands activity ${rowIndex * 4 + i + 1}`}
+                alt={`Helping Hands activity ${columnIndex * items.length + (i % items.length) + 1}`}
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 decoding="async"
                 loading="lazy"
@@ -23,18 +33,15 @@ function GalleryRow({ items, reverse = false, duration = 28, rowIndex = 0 }) {
             </div>
           </FadeIn>
         ))}
-      </AutoSlider>
+      </motion.div>
     </div>
   )
 }
 
 export default function Gallery() {
-  const rows = []
-  const itemsPerRow = 4
-
-  for (let i = 0; i < gallery.length; i += itemsPerRow) {
-    rows.push(gallery.slice(i, i + itemsPerRow))
-  }
+  const columns = Array.from({ length: 4 }, (_, columnIndex) =>
+    gallery.filter((_, index) => index % 4 === columnIndex)
+  ).filter((column) => column.length > 0)
 
   return (
     <section id="gallery" className="w-full overflow-hidden px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
@@ -45,14 +52,13 @@ export default function Gallery() {
           </h2>
         </FadeIn>
 
-        <div className="mt-6 space-y-4 sm:mt-8 sm:space-y-5">
-          {rows.map((row, index) => (
-            <GalleryRow
-              key={`gallery-row-${index}`}
-              items={row}
-              rowIndex={index}
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-4 sm:gap-4 lg:gap-5">
+          {columns.map((column, index) => (
+            <GalleryColumn
+              key={`gallery-column-${index}`}
+              items={column}
+              columnIndex={index}
               reverse={index % 2 === 1}
-              duration={24 + index * 3}
             />
           ))}
         </div>
