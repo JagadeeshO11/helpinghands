@@ -4,8 +4,6 @@
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Playfair Display", Georgia, serif;
-
-  /* Exact Helping Hands logo palette */
   --color-background: #ffffff;
   --color-foreground: #061d49;
   --color-muted: #f5f7fa;
@@ -14,13 +12,11 @@
   --color-card-foreground: #061d49;
   --color-border: #dce4ee;
 
-  /* Deep Navy + Royal Blue primary system */
+  /* Deep Navy + Vibrant Royal Blue */
   --color-primary: #04458f;
   --color-primary-foreground: #ffffff;
   --color-primary-dark: #061d49;
   --color-primary-soft: #eaf2fb;
-
-  /* Vibrant Royal Blue */
   --color-blue: #04458f;
   --color-blue-light: #04458f;
   --color-blue-gradient: linear-gradient(135deg, #061d49 0%, #04458f 100%);
@@ -38,7 +34,7 @@
   --color-orange-light: #ef9a0a;
   --color-orange-gradient: linear-gradient(135deg, #ef9a0a 0%, #ef9a0a 100%);
 
-  /* Existing component compatibility tokens now follow the logo palette */
+  /* Legacy component compatibility, deliberately mapped to the logo palette */
   --color-teal: #196823;
   --color-teal-dark: #061d49;
   --color-cream: #fffaf0;
@@ -47,41 +43,18 @@
   --radius: 1.25rem;
 
   /* Brand-mapped Tailwind utility shades */
-  --color-blue-50: #eaf2fb;
-  --color-blue-100: #d7e7f8;
-  --color-blue-200: #b4d0ed;
-  --color-blue-300: #7fa9d5;
-  --color-blue-400: #3f78b8;
-  --color-blue-500: #04458f;
-  --color-blue-600: #04458f;
-  --color-blue-700: #061d49;
-  --color-blue-800: #061d49;
-  --color-blue-900: #061d49;
-  --color-blue-950: #061d49;
-
-  --color-green-50: #eef7e9;
-  --color-green-100: #dcefd4;
-  --color-green-200: #bdddad;
-  --color-green-300: #8fbe78;
-  --color-green-400: #5e922c;
-  --color-green-500: #196823;
-  --color-green-600: #196823;
-  --color-green-700: #196823;
-  --color-green-800: #196823;
-  --color-green-900: #061d49;
-  --color-green-950: #061d49;
-
-  --color-orange-50: #fff8e8;
-  --color-orange-100: #fff0c7;
-  --color-orange-200: #ffe19a;
-  --color-orange-300: #f8c85d;
-  --color-orange-400: #ef9a0a;
-  --color-orange-500: #ef9a0a;
-  --color-orange-600: #ef9a0a;
-  --color-orange-700: #c77d00;
-  --color-orange-800: #8f5a00;
-  --color-orange-900: #674100;
-  --color-orange-950: #3d2700;
+  --color-blue-50: #eaf2fb; --color-blue-100: #d7e7f8; --color-blue-200: #b4d0ed;
+  --color-blue-300: #7fa9d5; --color-blue-400: #3f78b8; --color-blue-500: #04458f;
+  --color-blue-600: #04458f; --color-blue-700: #061d49; --color-blue-800: #061d49;
+  --color-blue-900: #061d49; --color-blue-950: #061d49;
+  --color-green-50: #eef7e9; --color-green-100: #dcefd4; --color-green-200: #bdddad;
+  --color-green-300: #8fbe78; --color-green-400: #5e922c; --color-green-500: #196823;
+  --color-green-600: #196823; --color-green-700: #196823; --color-green-800: #196823;
+  --color-green-900: #061d49; --color-green-950: #061d49;
+  --color-orange-50: #fff8e8; --color-orange-100: #fff0c7; --color-orange-200: #ffe19a;
+  --color-orange-300: #f8c85d; --color-orange-400: #ef9a0a; --color-orange-500: #ef9a0a;
+  --color-orange-600: #ef9a0a; --color-orange-700: #c77d00; --color-orange-800: #8f5a00;
+  --color-orange-900: #674100; --color-orange-950: #3d2700;
 }
 
 @layer base {
@@ -111,17 +84,18 @@
   .brand-orange-gradient { background: var(--color-orange-gradient); }
   .brand-gradient { background: linear-gradient(135deg, #061d49 0%, #04458f 40%, #196823 72%, #5e922c 100%); }
 
-  /* Make legacy teal utilities visibly use the logo green family. */
+  /* Site-wide visual mapping for the existing page/component utility classes */
   .bg-teal { background: var(--color-green-gradient); }
   .text-teal { color: #196823; }
   .border-teal { border-color: #196823; }
   .bg-teal-dark { background: #061d49; }
   .text-teal-dark { color: #061d49; }
-
-  /* Keep primary UI royal blue while deep variants stay navy. */
   .bg-primary { background: #04458f; }
   .text-primary { color: #04458f; }
   .border-primary { border-color: #04458f; }
+  .bg-primary-soft { background: linear-gradient(135deg, #eaf2fb 0%, #f5f8fc 100%); }
+  .bg-accent-soft { background: linear-gradient(135deg, #fff4dc 0%, #fff9ed 100%); }
+  .bg-green-soft { background: linear-gradient(135deg, #eef7e9 0%, #f6faef 100%); }
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
