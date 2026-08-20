@@ -38,13 +38,51 @@
   --color-orange-light: #ef9a0a;
   --color-orange-gradient: linear-gradient(135deg, #ef9a0a 0%, #ef9a0a 100%);
 
-  /* Existing component compatibility tokens now mapped to logo colors */
+  /* Existing component compatibility tokens */
   --color-teal: #04458f;
   --color-teal-dark: #061d49;
   --color-cream: #fffaf0;
   --color-ink: #061d49;
   --color-line: #dce4ee;
   --radius: 1.25rem;
+
+  /* Brand-map Tailwind utilities used by page/component code.
+     This prevents default Tailwind blue/green/orange shades from leaking into the UI. */
+  --color-blue-50: #eaf2fb;
+  --color-blue-100: #d7e7f8;
+  --color-blue-200: #b4d0ed;
+  --color-blue-300: #7fa9d5;
+  --color-blue-400: #3f78b8;
+  --color-blue-500: #04458f;
+  --color-blue-600: #04458f;
+  --color-blue-700: #061d49;
+  --color-blue-800: #061d49;
+  --color-blue-900: #061d49;
+  --color-blue-950: #061d49;
+
+  --color-green-50: #eef7e9;
+  --color-green-100: #dcefd4;
+  --color-green-200: #bdddad;
+  --color-green-300: #8fbe78;
+  --color-green-400: #5e922c;
+  --color-green-500: #196823;
+  --color-green-600: #196823;
+  --color-green-700: #196823;
+  --color-green-800: #196823;
+  --color-green-900: #061d49;
+  --color-green-950: #061d49;
+
+  --color-orange-50: #fff8e8;
+  --color-orange-100: #fff0c7;
+  --color-orange-200: #ffe19a;
+  --color-orange-300: #f8c85d;
+  --color-orange-400: #ef9a0a;
+  --color-orange-500: #ef9a0a;
+  --color-orange-600: #ef9a0a;
+  --color-orange-700: #c77d00;
+  --color-orange-800: #8f5a00;
+  --color-orange-900: #674100;
+  --color-orange-950: #3d2700;
 }
 
 @layer base {
