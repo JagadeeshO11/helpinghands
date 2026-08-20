@@ -1,6 +1,45 @@
+import { useEffect, useRef, useState } from "react"
 import { impact } from "../data/content"
 import Icon from "./Common/Icon"
 import FadeIn from "./Common/FadeIn"
+
+function CountUp({ value }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const [started, setStarted] = useState(false)
+  const match = String(value).match(/([\d,]+)(.*)/)
+  const target = match ? Number(match[1].replace(/,/g, "")) : 0
+  const suffix = match ? match[2] : ""
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setStarted(true)
+        observer.disconnect()
+      }
+    }, { threshold: 0.35 })
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!started) return
+    let frame
+    const start = performance.now()
+    const duration = 1800
+    const animate = (now) => {
+      const progress = Math.min((now - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.floor(target * eased))
+      if (progress < 1) frame = requestAnimationFrame(animate)
+      else setCount(target)
+    }
+    frame = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(frame)
+  }, [started, target])
+
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>
+}
 
 export default function Impact() {
   return (
@@ -18,7 +57,7 @@ export default function Impact() {
                 <span className="grid size-11 place-items-center rounded-full bg-card text-teal shadow-sm sm:size-14">
                   <Icon name={stat.icon} className="size-5 sm:size-6" />
                 </span>
-                <span className="mt-2 font-heading text-xl font-extrabold text-primary sm:mt-3 sm:text-2xl">{stat.value}</span>
+                <span className="mt-2 font-heading text-xl font-extrabold text-primary sm:mt-3 sm:text-2xl"><CountUp value={stat.value} /></span>
                 <span className="mt-1 text-[10px] text-muted-foreground sm:text-xs">{stat.label}</span>
               </FadeIn>
             ))}
