@@ -15,7 +15,8 @@
 @layer base {
   * { box-sizing: border-box; border-color: var(--color-border); }
   html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
-  body { margin: 0; min-width: 320px; background: #fff; color: var(--color-foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { margin: 0; min-width: 320px; width: 100%; background: #fff; color: var(--color-foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  #root { width: 100%; min-width: 320px; margin: 0; padding: 0; }
   img { display: block; max-width: 100%; height: auto; }
   button, a { -webkit-tap-highlight-color: transparent; }
   ::selection { background: var(--color-accent); color: #fff; }
@@ -24,13 +25,12 @@
 @layer components {
   .font-heading { font-family: var(--font-heading); }
 
-  /* Full-width visual bands, constrained inner content. */
+  /* Full-width visual bands. Inner content remains centered. */
   .page-shell { width: min(calc(100% - 2rem), 1320px); margin-inline: auto; }
   .section-gutter { width: min(calc(100% - 2rem), 1320px); margin-inline: auto; padding-inline: 0; }
-  .public-page { width: 100%; max-width: none; overflow: hidden; }
-  .public-page > section { width: 100%; max-width: none; margin: 0; border: 0 !important; }
+  .public-page, .home-page { width: 100%; max-width: none; margin: 0; padding: 0; overflow: hidden; }
+  .public-page > section, .home-page > section { width: 100%; max-width: none; margin: 0; border: 0 !important; }
 
-  /* Better vertical rhythm and hero proportions. */
   .public-page > section { padding-block: clamp(3.5rem, 6vw, 7rem); }
   .public-page > section:first-child { min-height: clamp(380px, 42vw, 640px); display: flex; align-items: center; }
   .home-page > section:first-child { min-height: min(76vh, 720px); }
@@ -47,20 +47,18 @@
   .bg-accent-soft { background: linear-gradient(135deg, #fff4dc 0%, #fff9ed 100%); }
   .bg-green-soft { background: linear-gradient(135deg, #eef7e9 0%, #f6faef 100%); }
 
-  /* Large page-level surfaces. */
   main > section { border: 0 !important; }
   main > section:first-child:not(.home-hero) { background: linear-gradient(135deg, #061d49 0%, #04458f 100%) !important; color: #fff; }
   main > section:first-child:not(.home-hero) h1, main > section:first-child:not(.home-hero) p { color: #fff !important; }
   main > section:first-child:not(.home-hero) p { opacity: .84; }
   .home-hero { background: linear-gradient(135deg, #061d49 0%, #04458f 100%); color: #fff; border: 0 !important; }
 
-  /* Responsive inner containers: wide on desktop, comfortable on mobile. */
+  /* Full-width background, centered content with consistent margins. */
   .public-page section > .container, .public-page section > div.container,
   .public-page section > .max-w-7xl, .public-page section > .max-w-6xl, .public-page section > .max-w-5xl {
     width: min(calc(100% - 2rem), 1320px); margin-inline: auto;
   }
 
-  /* Home color rhythm. */
   .home-page > section:nth-child(2) { background: #f7fbff; }
   .home-page > section:nth-child(3) { background: #fff; }
   .home-page > section:nth-child(4) { background: linear-gradient(135deg, #eef7e9 0%, #f8fbf4 100%); }
