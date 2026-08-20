@@ -1,16 +1,128 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { AnimatePresence, motion } from "framer-motion"
 import { ChevronDown, ChevronUp, Heart, MessageCircle, Phone, ShieldCheck, UserRound } from "lucide-react"
 
 const COLUMNS = [
   { title: "ABOUT US", links: [["About Organization", "/about"], ["Leadership Desk", "/about/leadership"], ["Our Team", "/teams"], ["Volunteers", "/volunteer"], ["Legal Terms", "/about/legal-terms"]] },
   { title: "OUR WORK", links: [["Programs", "/programs"], ["Education", "/programs"], ["Healthcare", "/programs"], ["Food Distribution", "/programs"], ["Women Empowerment", "/programs"]] },
   { title: "CAMPAIGNS", links: [["Every Child Deserves Education", "/campaigns"], ["Healthy Communities", "/campaigns"], ["Meals With Dignity", "/campaigns"], ["Women Empowerment Initiative", "/campaigns"], ["All Campaigns", "/campaigns"]] },
-  { title: "GET INVOLVED", links: [["Donate", "/donate"], ["Become a Member", "/support-us"], ["Volunteer Registration", "/volunteer"], ["Support Us", "/support-us"], ["Partner With Us", "/contact"] },
-  { title: "RESOURCE CENTRE", links: [["Reports", "/about/reports"], ["Certificates", "/about/certificates"], ["Photos", "/resources/photos"], ["Videos", "/resources/videos"], ["Achievements & Awards", "/resources/achievements-awards"], ["Press Stories", "/resources/press-stories"], ["Events", "/events"] },
+  { title: "GET INVOLVED", links: [["Donate", "/donate"], ["Become a Member", "/support-us"], ["Volunteer Registration", "/volunteer"], ["Support Us", "/support-us"], ["Partner With Us", "/contact"]] },
+  { title: "RESOURCE CENTRE", links: [["Reports", "/about/reports"], ["Certificates", "/about/certificates"], ["Photos", "/resources/photos"], ["Videos", "/resources/videos"], ["Achievements & Awards", "/resources/achievements-awards"], ["Press Stories", "/resources/press-stories"], ["Events", "/events"]] },
 ]
-function FooterColumn({ title, links }) { return <div><h3 className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-white sm:text-[14px]">{title}</h3><ul className="mt-5 space-y-3">{links.map(([label, to]) => <li key={`${title}-${label}`}><NavLink to={to} className="text-[10px] leading-5 text-white/75 transition hover:text-[#ffb74d] sm:text-[14px]">{label}</NavLink></li>)}</ul></div> }
-function MobileColumn({ title, links }) { const [open, setOpen] = useState(false); return <div className="border-b border-white/10"><button type="button" onClick={() => setOpen(v => !v)} className="flex min-h-12 w-full items-center justify-between text-left text-[10px] font-extrabold uppercase tracking-[0.12em] text-white">{title}{open ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}</button><AnimatePresence initial={false}>{open && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden pb-3"><ul className="space-y-2">{links.map(([label, to]) => <li key={`${title}-${label}`}><NavLink to={to} className="text-xs text-white/70 hover:text-[#ffb74d]">{label}</NavLink></li>)}</ul></motion.div>}</AnimatePresence></div> }
-export default function Footer() { return <><footer id="footer" className="relative mt-0 overflow-hidden bg-[#04458F] text-white"><div className="mx-auto max-w-[1600px] px-5 py-9 sm:px-10 lg:px-16 lg:py-14"><div className="hidden lg:grid lg:grid-cols-5 lg:gap-10">{COLUMNS.map(column => <FooterColumn key={column.title} {...column} />)}</div><div className="lg:hidden">{COLUMNS.map(column => <MobileColumn key={column.title} {...column} />)}</div></div><div className="border-t border-white/15"><div className="mx-auto grid max-w-[1600px] gap-8 px-5 py-8 sm:px-10 lg:grid-cols-[1.05fr_1.45fr_.65fr] lg:gap-12 lg:px-16 lg:py-10"><div><h3 className="text-base font-extrabold sm:text-lg">Helping Hands Foundation</h3><p className="mt-3 text-xs leading-6 text-white/75 sm:text-sm">Helping communities through education, healthcare, food support and empowerment.</p><p className="mt-3 text-xs leading-6 text-white/75 sm:text-sm">Address: Main Road, Tirupati, Andhra Pradesh – 517501</p><p className="mt-1 text-xs leading-6 text-white/75 sm:text-sm">Phone: +91 98765 43210</p><p className="mt-1 text-xs leading-6 text-white/75 sm:text-sm">Email: help@helpinghands.org</p><p className="mt-2 text-xs text-white/75 sm:text-sm">Mon – Sat: 10:00 – 18:00</p><div className="mt-5 flex gap-3">{["f", "▶", "◎", "◔", "in"].map((mark, index) => <a key={index} href="#" aria-label={["Facebook", "YouTube", "Instagram", "WhatsApp", "LinkedIn"][index]} className="grid size-10 place-items-center rounded-full bg-white/10 text-sm font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:bg-[#ff9700] hover:text-white">{mark}</a>)}</div></div><div className="flex items-start"><p className="max-w-[650px] text-sm leading-7 text-white/75 sm:text-base">Helping Hands Foundation works with communities to create lasting opportunities for children, women, families and vulnerable groups across India.</p></div><div className="lg:justify-self-end"><p className="flex items-center gap-2 text-sm font-extrabold">▦ Scan to Support Us</p><div className="mt-4 grid size-36 place-items-center rounded-xl border-4 border-[#ffb74d] bg-white text-center text-xs font-bold text-[#04458F]">QR<br />SUPPORT</div><NavLink to="/donate" className="mt-5 inline-flex min-h-11 w-40 items-center justify-center gap-2 rounded-full bg-[#ff9700] px-5 text-sm font-extrabold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#f38a00]"><Heart className="size-4 fill-current" /> Donate Now</NavLink><a href="tel:+919876543210" className="mt-3 flex items-center gap-2 text-sm text-white/80"><Phone className="size-4 text-[#5E922C]" /> +91 98765 43210</a></div></div></div><div className="border-t border-white/15 bg-[#033a78]"><div className="mx-auto flex max-w-[1600px] flex-col items-center gap-3 px-5 py-4 text-center text-xs text-white/65 sm:px-10 lg:flex-row lg:justify-center lg:gap-5"><span>© 2026 Helping Hands Foundation | All Rights Reserved</span><span className="hidden lg:inline">|</span><NavLink to="/about/legal-terms" className="hover:text-white">Terms &amp; Conditions</NavLink><NavLink to="/about/legal-terms" className="hover:text-white">Privacy Policy</NavLink><NavLink to="/about/legal-terms" className="hover:text-white">Disclaimer</NavLink><NavLink to="/about/legal-terms" className="hover:text-white">Refund Policy</NavLink><NavLink to="/about/legal-terms" className="hover:text-white">Shipping Policy</NavLink></div></div><div className="bg-[#022f62] px-5 py-3 text-center text-xs text-white/60"><span className="text-[#ff9700]">♥</span> Designed &amp; Developed by <strong className="text-white/80">Helping Hands Team</strong></div><button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top" className="absolute right-5 top-5 grid size-10 place-items-center rounded-full bg-white/10 text-white transition hover:bg-[#ff9700]"><ChevronUp className="size-5" /></button></footer><FloatingActions /></> }
-function FloatingActions() { return <div className="fixed bottom-4 right-4 z-[180] sm:bottom-5 sm:right-5"><a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="grid size-14 place-items-center rounded-full bg-[#00d96b] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 lg:hidden" aria-label="WhatsApp support"><MessageCircle className="size-7" /></a><div className="hidden lg:grid lg:grid-cols-2 lg:gap-3"><NavLink to="/volunteer" aria-label="Volunteer" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105" title="Volunteer"><UserRound className="size-6" /></NavLink><NavLink to="/support-us" aria-label="Get Support" className="grid size-14 place-items-center rounded-full bg-[#173d73] text-white shadow-xl transition hover:scale-105" title="Get Support"><ShieldCheck className="size-6" /></NavLink><a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="grid size-14 place-items-center rounded-full bg-[#00d96b] text-white shadow-xl transition hover:scale-105" title="WhatsApp"><MessageCircle className="size-6" /></a><NavLink to="/donate" aria-label="Donate" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105" title="Donate"><Heart className="size-6 fill-current" /></NavLink></div></div> }
+
+function FooterColumn({ title, links }) {
+  return (
+    <div>
+      <h3 className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-white sm:text-[14px]">{title}</h3>
+      <ul className="mt-5 space-y-3">
+        {links.map(([label, to]) => (
+          <li key={`${title}-${label}`}>
+            <NavLink to={to} className="text-[10px] leading-5 text-white/75 transition hover:text-[#ffb74d] sm:text-[14px]">{label}</NavLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function MobileColumn({ title, links }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="border-b border-white/10">
+      <button type="button" onClick={() => setOpen((value) => !value)} className="flex min-h-12 w-full items-center justify-between text-left text-[10px] font-extrabold uppercase tracking-[0.12em] text-white">
+        {title}
+        {open ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}
+      </button>
+      {open && (
+        <ul className="space-y-2 pb-4">
+          {links.map(([label, to]) => (
+            <li key={`${title}-${label}`}>
+              <NavLink to={to} className="text-xs text-white/70 transition hover:text-[#ffb74d]">{label}</NavLink>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
+}
+
+function FloatingActions() {
+  return (
+    <div className="fixed bottom-4 right-4 z-[180] sm:bottom-5 sm:right-5">
+      <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="grid size-14 place-items-center rounded-full bg-[#00d96b] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 lg:hidden" aria-label="WhatsApp support">
+        <MessageCircle className="size-7" />
+      </a>
+      <div className="hidden grid-cols-2 gap-3 lg:grid">
+        <NavLink to="/volunteer" aria-label="Volunteer" title="Volunteer" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105">
+          <UserRound className="size-6" />
+        </NavLink>
+        <NavLink to="/support-us" aria-label="Get Support" title="Get Support" className="grid size-14 place-items-center rounded-full bg-[#173d73] text-white shadow-xl transition hover:scale-105">
+          <ShieldCheck className="size-6" />
+        </NavLink>
+        <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" aria-label="WhatsApp" title="WhatsApp" className="grid size-14 place-items-center rounded-full bg-[#00d96b] text-white shadow-xl transition hover:scale-105">
+          <MessageCircle className="size-6" />
+        </a>
+        <NavLink to="/donate" aria-label="Donate" title="Donate" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105">
+          <Heart className="size-6 fill-current" />
+        </NavLink>
+      </div>
+    </div>
+  )
+}
+
+export default function Footer() {
+  return (
+    <>
+      <footer id="footer" className="relative mt-0 overflow-hidden bg-[#04458F] text-white">
+        <div className="mx-auto max-w-[1600px] px-5 py-9 sm:px-10 lg:px-16 lg:py-14">
+          <div className="hidden lg:grid lg:grid-cols-5 lg:gap-10">
+            {COLUMNS.map((column) => <FooterColumn key={column.title} {...column} />)}
+          </div>
+          <div className="lg:hidden">
+            {COLUMNS.map((column) => <MobileColumn key={column.title} {...column} />)}
+          </div>
+        </div>
+
+        <div className="border-t border-white/15">
+          <div className="mx-auto grid max-w-[1600px] gap-8 px-5 py-8 sm:px-10 lg:grid-cols-[1.05fr_1.45fr_.65fr] lg:gap-12 lg:px-16 lg:py-10">
+            <div>
+              <h3 className="text-base font-extrabold sm:text-lg">Helping Hands Foundation</h3>
+              <p className="mt-3 text-xs leading-6 text-white/75 sm:text-sm">Helping communities through education, healthcare, food support and empowerment.</p>
+              <p className="mt-3 text-xs leading-6 text-white/75 sm:text-sm">Address: Main Road, Tirupati, Andhra Pradesh – 517501</p>
+              <p className="mt-1 text-xs leading-6 text-white/75 sm:text-sm">Phone: +91 98765 43210</p>
+              <p className="mt-1 text-xs leading-6 text-white/75 sm:text-sm">Email: help@helpinghands.org</p>
+              <p className="mt-2 text-xs text-white/75 sm:text-sm">Mon – Sat: 10:00 – 18:00</p>
+            </div>
+
+            <div className="flex items-start">
+              <p className="max-w-[650px] text-sm leading-7 text-white/75 sm:text-base">Helping Hands Foundation works with communities to create lasting opportunities for children, women, families and vulnerable groups across India.</p>
+            </div>
+
+            <div className="lg:justify-self-end">
+              <p className="flex items-center gap-2 text-sm font-extrabold">▦ Scan to Support Us</p>
+              <div className="mt-4 grid size-36 place-items-center rounded-xl border-4 border-[#ffb74d] bg-white text-center text-xs font-bold text-[#04458F]">QR<br />SUPPORT</div>
+              <NavLink to="/donate" className="mt-5 inline-flex min-h-11 w-40 items-center justify-center gap-2 rounded-full bg-[#ff9700] px-5 text-sm font-extrabold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#f38a00]"><Heart className="size-4 fill-current" />Donate Now</NavLink>
+              <a href="tel:+919876543210" className="mt-3 flex items-center gap-2 text-sm text-white/80"><Phone className="size-4 text-[#5E922C]" />+91 98765 43210</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-white/15 bg-[#033a78]">
+          <div className="mx-auto flex max-w-[1600px] flex-col items-center gap-3 px-5 py-4 text-center text-xs text-white/65 sm:px-10 lg:flex-row lg:justify-center lg:gap-5">
+            <span>© 2026 Helping Hands Foundation | All Rights Reserved</span>
+            <span className="hidden lg:inline">|</span>
+            <NavLink to="/about/legal-terms" className="hover:text-white">Terms &amp; Conditions</NavLink>
+            <NavLink to="/about/legal-terms" className="hover:text-white">Privacy Policy</NavLink>
+            <NavLink to="/about/legal-terms" className="hover:text-white">Disclaimer</NavLink>
+            <NavLink to="/about/legal-terms" className="hover:text-white">Refund Policy</NavLink>
+            <NavLink to="/about/legal-terms" className="hover:text-white">Shipping Policy</NavLink>
+          </div>
+        </div>
+
+        <div className="bg-[#022f62] px-5 py-3 text-center text-xs text-white/60"><span className="text-[#ff9700]">♥</span> Designed &amp; Developed by <strong className="text-white/80">Helping Hands Team</strong></div>
+        <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top" className="absolute right-5 top-5 grid size-10 place-items-center rounded-full bg-white/10 text-white transition hover:bg-[#ff9700]"><ChevronUp className="size-5" /></button>
+      </footer>
+      <FloatingActions />
+    </>
+  )
+}
