@@ -10,6 +10,7 @@ import Gallery from "../components/Gallery"
 import Testimonials from "../components/Testimonials"
 import News from "../components/News"
 import Partners from "../components/Partners"
+import CampaignPopup from "../components/CampaignPopup"
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Testimonials />
       <News />
       <Partners />
+      <CampaignPopup />
     </main>
   )
 }
