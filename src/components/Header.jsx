@@ -13,10 +13,10 @@ const NAV_LINKS = [
 const LOGO_URL = "https://res.cloudinary.com/dwmjz9csc/image/upload/v1786889497/9ec8064b-61d9-4e70-897d-4790e9ea2cdf-removebg-preview_ogtw6d.png"
 
 const SOCIAL_LINKS = [
-  { label: "Facebook", href: "#", icon: Facebook },
-  { label: "Instagram", href: "#", icon: Instagram },
-  { label: "YouTube", href: "#", icon: Youtube },
-  { label: "LinkedIn", href: "#", icon: Linkedin },
+  { label: "Facebook", icon: Facebook },
+  { label: "Instagram", icon: Instagram },
+  { label: "YouTube", icon: Youtube },
+  { label: "LinkedIn", icon: Linkedin },
 ]
 
 const NEWS_ITEMS = [
@@ -60,10 +60,10 @@ export default function Header() {
           </div>
           <div className="ml-auto flex w-full items-center justify-end gap-3 sm:w-1/2">
             <span className="hidden text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:block">Follow us</span>
-            {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
-              <a key={label} href={href} aria-label={label} className="grid size-6 place-items-center rounded-full text-white/85 transition hover:bg-white/10 hover:text-accent focus-visible:outline-2 focus-visible:outline-accent sm:size-7">
-                <Icon className="size-3.5 sm:size-4" />
-              </a>
+            {SOCIAL_LINKS.map(({ label, icon: Icon }) => (
+              <span key={label} aria-label={`${label} link coming soon`} title={`${label} link coming soon`} className="grid size-6 cursor-default place-items-center rounded-full text-white/85 sm:size-7">
+                <Icon className="size-3.5 sm:size-4" aria-hidden="true" />
+              </span>
             ))}
           </div>
         </div>
