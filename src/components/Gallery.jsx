@@ -14,7 +14,17 @@ function GalleryColumn({ items, reverse = false, columnIndex = 0 }) {
         {doubled.map((src, i) => (
           <FadeIn key={`${src}-${columnIndex}-${i}`} className="w-full shrink-0">
             <div className="group aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-muted shadow-sm sm:rounded-3xl">
-              <img src={src} alt={`Helping Hands activity ${columnIndex * items.length + (i % items.length) + 1}`} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" decoding="async" loading="lazy" />
+              <img
+                src={src}
+                alt={`Helping Hands activity ${columnIndex * items.length + (i % items.length) + 1}`}
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                decoding="async"
+                loading="lazy"
+                onError={(event) => {
+                  event.currentTarget.onerror = null
+                  event.currentTarget.src = "/images/gallery-1.png"
+                }}
+              />
             </div>
           </FadeIn>
         ))}
