@@ -5,26 +5,29 @@
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Playfair Display", Georgia, serif;
 
+  /* Helping Hands brand palette, centralized for the whole application. */
   --color-background: #ffffff;
-  --color-foreground: #263942;
-  --color-muted: #eef2f7;
-  --color-muted-foreground: #68777b;
+  --color-foreground: #24343b;
+  --color-muted: #f1f5f4;
+  --color-muted-foreground: #66777a;
   --color-card: #ffffff;
-  --color-card-foreground: #263942;
-  --color-border: #e8e5de;
+  --color-card-foreground: #24343b;
+  --color-border: #dfe9e7;
 
-  --color-primary: #0c3b59;
+  --color-primary: #0f5f68;
   --color-primary-foreground: #ffffff;
-  --color-primary-dark: #072c44;
-  --color-primary-soft: #e8f4f8;
-  --color-accent: #ff8758;
+  --color-primary-dark: #08484f;
+  --color-primary-soft: #e8f5f3;
+
+  --color-accent: #ef8b3a;
   --color-accent-foreground: #ffffff;
-  --color-accent-soft: #fff1eb;
+  --color-accent-soft: #fff1e4;
+
   --color-teal: #087884;
-  --color-teal-dark: #006474;
-  --color-cream: #fff8f2;
-  --color-ink: #263942;
-  --color-line: #e8e5de;
+  --color-teal-dark: #075a63;
+  --color-cream: #fffaf4;
+  --color-ink: #24343b;
+  --color-line: #dfe9e7;
   --radius: 1.25rem;
 }
 
@@ -61,7 +64,7 @@
 
   ::selection {
     background: var(--color-accent);
-    color: white;
+    color: #ffffff;
   }
 }
 
