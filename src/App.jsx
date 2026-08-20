@@ -9,6 +9,8 @@ import Volunteer from "./pages/Volunteer"
 import Contact from "./pages/Contact"
 import Teams from "./pages/Teams"
 import TeamGroup from "./pages/TeamGroup"
+import ResourcePage from "./pages/ResourcePage"
+import AboutSubpage from "./pages/AboutSubpage"
 import NotFound from "./pages/NotFound"
 import AdminLayout from "./pages/admin/AdminLayout"
 import AdminDashboard from "./pages/admin/AdminDashboard"
@@ -21,37 +23,5 @@ import VolunteerLogin from "./pages/volunteer/VolunteerLogin"
 import VolunteerUpdates from "./pages/volunteer/VolunteerUpdates"
 
 export default function App() {
-  return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <Routes>
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="donors" element={<AdminDonors />} />
-          <Route path="volunteers" element={<AdminVolunteers />} />
-          <Route path="gallery" element={<AdminGallery />} />
-          <Route path="reports" element={<AdminReports />} />
-        </Route>
-        <Route path="/*" element={
-          <>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/programs" element={<Programs />} />
-              <Route path="/teams" element={<Teams />} />
-              <Route path="/teams/:group" element={<TeamGroup />} />
-              <Route path="/donate" element={<Donate />} />
-              <Route path="/volunteer" element={<Volunteer />} />
-              <Route path="/volunteer/login" element={<VolunteerLogin />} />
-              <Route path="/volunteer/updates" element={<VolunteerUpdates />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Footer />
-          </>
-        } />
-      </Routes>
-    </div>
-  )
+  return <div className="flex min-h-screen flex-col bg-background"><Routes><Route path="/admin/login" element={<AdminLogin />} /><Route path="/admin" element={<AdminLayout />}><Route index element={<AdminDashboard />} /><Route path="donors" element={<AdminDonors />} /><Route path="volunteers" element={<AdminVolunteers />} /><Route path="gallery" element={<AdminGallery />} /><Route path="reports" element={<AdminReports />} /></Route><Route path="/*" element={<><Header /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/about/leadership" element={<AboutSubpage />} /><Route path="/about/legal-terms" element={<AboutSubpage />} /><Route path="/about/reports" element={<ResourcePage />} /><Route path="/about/reports/:type" element={<ResourcePage />} /><Route path="/about/certificates" element={<ResourcePage />} /><Route path="/about/certificates/:type" element={<ResourcePage />} /><Route path="/resources/photos" element={<ResourcePage />} /><Route path="/resources/videos" element={<ResourcePage />} /><Route path="/resources/achievements-awards" element={<ResourcePage />} /><Route path="/resources/press-stories" element={<ResourcePage />} /><Route path="/programs" element={<Programs />} /><Route path="/teams" element={<Teams />} /><Route path="/teams/:group" element={<TeamGroup />} /><Route path="/donate" element={<Donate />} /><Route path="/volunteer" element={<Volunteer />} /><Route path="/volunteer/login" element={<VolunteerLogin />} /><Route path="/volunteer/updates" element={<VolunteerUpdates />} /><Route path="/contact" element={<Contact />} /><Route path="*" element={<NotFound />} /></Routes><Footer /></>} /></Routes></div>
 }
