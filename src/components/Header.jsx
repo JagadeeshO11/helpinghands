@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { NavLink, useLocation } from "react-router-dom"
-import { Facebook, Heart, Instagram, Linkedin, Menu, X, Youtube } from "lucide-react"
+import { Heart, Menu, X } from "lucide-react"
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -13,10 +13,10 @@ const NAV_LINKS = [
 const LOGO_URL = "https://res.cloudinary.com/dwmjz9csc/image/upload/v1786889497/9ec8064b-61d9-4e70-897d-4790e9ea2cdf-removebg-preview_ogtw6d.png"
 
 const SOCIAL_LINKS = [
-  { label: "Facebook", icon: Facebook },
-  { label: "Instagram", icon: Instagram },
-  { label: "YouTube", icon: Youtube },
-  { label: "LinkedIn", icon: Linkedin },
+  { label: "Facebook", glyph: "f" },
+  { label: "Instagram", glyph: "◎" },
+  { label: "YouTube", glyph: "▶" },
+  { label: "LinkedIn", glyph: "in" },
 ]
 
 const NEWS_ITEMS = [
@@ -60,9 +60,9 @@ export default function Header() {
           </div>
           <div className="ml-auto flex w-full items-center justify-end gap-3 sm:w-1/2">
             <span className="hidden text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 sm:block">Follow us</span>
-            {SOCIAL_LINKS.map(({ label, icon: Icon }) => (
+            {SOCIAL_LINKS.map(({ label, glyph }) => (
               <span key={label} aria-label={`${label} link coming soon`} title={`${label} link coming soon`} className="grid size-6 cursor-default place-items-center rounded-full text-white/85 sm:size-7">
-                <Icon className="size-3.5 sm:size-4" aria-hidden="true" />
+                <span className="text-[11px] font-extrabold leading-none sm:text-xs" aria-hidden="true">{glyph}</span>
               </span>
             ))}
           </div>
