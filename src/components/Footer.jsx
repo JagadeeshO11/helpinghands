@@ -1,13 +1,13 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { ChevronDown, ChevronUp, Heart, MessageCircle, Phone, ShieldCheck, UserRound } from "lucide-react"
+import { ChevronDown, ChevronUp, Heart, MessageCircle, Phone, ShieldCheck, UserRound, Music2 } from "lucide-react"
 
 const COLUMNS = [
   { title: "ABOUT US", links: [["About Organization", "/about"], ["Leadership Desk", "/about/leadership"], ["Our Team", "/teams"], ["Volunteers", "/volunteer"], ["Legal Terms", "/about/legal-terms"]] },
   { title: "OUR WORK", links: [["Programs", "/programs"], ["Education", "/programs"], ["Healthcare", "/programs"], ["Food Distribution", "/programs"], ["Women Empowerment", "/programs"]] },
   { title: "CAMPAIGNS", links: [["Every Child Deserves Education", "/campaigns"], ["Healthy Communities", "/campaigns"], ["Meals With Dignity", "/campaigns"], ["Women Empowerment Initiative", "/campaigns"], ["All Campaigns", "/campaigns"]] },
   { title: "GET INVOLVED", links: [["Donate", "/donate"], ["Become a Member", "/support-us"], ["Volunteer Registration", "/volunteer"], ["Support Us", "/support-us"], ["Partner With Us", "/contact"]] },
-  { title: "RESOURCE CENTRE", links: [["Reports", "/about/reports"], ["Certificates", "/about/certificates"], ["Photos", "/resources/photos"], ["Videos", "/resources/videos"], ["Achievements & Awards", "/resources/achievements-awards"], ["Press Stories", "/resources/press-stories"], ["Events", "/events"]] },
+  { title: "RESOURCE CENTRE", links: [["Reports", "/about/reports"], ["Certificates", "/about/certificates"], ["Photos", "/resources/photos"], ["Videos", "/resources/videos"], ["Achievements & Awards", "/resources/achievements-awards"], ["Press Stories", "/resources/press-stories"], ["Events", "/events"] },
 ]
 
 function FooterColumn({ title, links }) {
@@ -38,5 +38,14 @@ export default function Footer() {
 }
 
 function FloatingActions() {
-  return <div className="fixed bottom-4 right-4 z-[180] sm:bottom-5 sm:right-5"><a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="grid size-14 place-items-center rounded-full bg-[#00d96b] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 lg:hidden" aria-label="WhatsApp support"><MessageCircle className="size-7" /></a><div className="hidden lg:grid lg:grid-cols-2 lg:gap-3"><NavLink to="/volunteer" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105" title="Volunteer"><UserRound className="size-6" /></NavLink><NavLink to="/support-us" className="grid size-14 place-items-center rounded-full bg-[#173d73] text-white shadow-xl transition hover:scale-105" title="Get Support"><ShieldCheck className="size-6" /></NavLink><a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="grid size-14 place-items-center rounded-full bg-[#00d96b] text-white shadow-xl transition hover:scale-105" title="WhatsApp"><MessageCircle className="size-6" /></a><NavLink to="/donate" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105" title="Donate"><Heart className="size-6 fill-current" /></NavLink></div></div>
+  return <div className="fixed inset-x-3 bottom-4 z-[180] flex items-end justify-between pointer-events-none sm:inset-x-5 sm:bottom-5 lg:inset-x-7">
+    <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto">
+      <NavLink to="/volunteer" className="grid size-12 place-items-center rounded-full bg-[#ff9700] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 sm:size-14" title="Volunteer" aria-label="Volunteer"><UserRound className="size-5 sm:size-6" /></NavLink>
+      <NavLink to="/support-us" className="grid size-12 place-items-center rounded-full bg-[#173d73] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 sm:size-14" title="Get Support" aria-label="Get Support"><ShieldCheck className="size-5 sm:size-6" /></NavLink>
+    </div>
+    <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto">
+      <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="grid size-12 place-items-center rounded-full bg-[#00d96b] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 sm:size-14" title="WhatsApp" aria-label="WhatsApp"><MessageCircle className="size-5 sm:size-6" /></a>
+      <button type="button" className="grid size-12 place-items-center rounded-full bg-[#ff9700] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 sm:size-14" title="Music" aria-label="Music"><Music2 className="size-5 sm:size-6" /></button>
+    </div>
+  </div>
 }
