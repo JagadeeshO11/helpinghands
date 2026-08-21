@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { ChevronDown, ChevronUp, Heart, MessageCircle, Phone, ShieldCheck, UserRound, Music2 } from "lucide-react"
+import { ChevronDown, ChevronUp, Heart, MessageCircle, Music2, Phone, ShieldCheck, UserRound } from "lucide-react"
 
 const COLUMNS = [
   { title: "ABOUT US", links: [["About Organization", "/about"], ["Leadership Desk", "/about/leadership"], ["Our Team", "/teams"], ["Volunteers", "/volunteer"], ["Legal Terms", "/about/legal-terms"]] },
@@ -38,14 +38,18 @@ export default function Footer() {
 }
 
 function FloatingActions() {
-  return <div className="fixed inset-x-3 bottom-4 z-[180] flex items-end justify-between pointer-events-none sm:inset-x-5 sm:bottom-5 lg:inset-x-7">
-    <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto">
-      <NavLink to="/volunteer" className="grid size-12 place-items-center rounded-full bg-[#ff9700] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 sm:size-14" title="Volunteer" aria-label="Volunteer"><UserRound className="size-5 sm:size-6" /></NavLink>
-      <NavLink to="/support-us" className="grid size-12 place-items-center rounded-full bg-[#173d73] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 sm:size-14" title="Get Support" aria-label="Get Support"><ShieldCheck className="size-5 sm:size-6" /></NavLink>
+  return <>
+    <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="fixed bottom-4 right-4 z-[180] grid size-14 place-items-center rounded-full bg-[#00d96b] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 lg:hidden" aria-label="WhatsApp support"><MessageCircle className="size-7" /></a>
+    <div className="pointer-events-none fixed inset-x-0 bottom-5 z-[180] hidden items-end justify-between px-5 lg:flex xl:px-8">
+      <div className="pointer-events-auto flex items-center gap-3">
+        <NavLink to="/volunteer" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105" title="Volunteer"><UserRound className="size-6" /></NavLink>
+        <NavLink to="/support-us" className="grid size-14 place-items-center rounded-full bg-[#173d73] text-white shadow-xl transition hover:scale-105" title="Get Support"><ShieldCheck className="size-6" /></NavLink>
+        <NavLink to="/donate" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105" title="Donate"><Heart className="size-6 fill-current" /></NavLink>
+      </div>
+      <div className="pointer-events-auto flex items-center gap-3">
+        <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="grid size-14 place-items-center rounded-full bg-[#00d96b] text-white shadow-xl transition hover:scale-105" title="WhatsApp"><MessageCircle className="size-6" /></a>
+        <button type="button" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105" title="Music" aria-label="Music"><Music2 className="size-6" /></button>
+      </div>
     </div>
-    <div className="flex items-center gap-2 sm:gap-3 pointer-events-auto">
-      <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="grid size-12 place-items-center rounded-full bg-[#00d96b] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 sm:size-14" title="WhatsApp" aria-label="WhatsApp"><MessageCircle className="size-5 sm:size-6" /></a>
-      <button type="button" className="grid size-12 place-items-center rounded-full bg-[#ff9700] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 sm:size-14" title="Music" aria-label="Music"><Music2 className="size-5 sm:size-6" /></button>
-    </div>
-  </div>
+  </>
 }
