@@ -46,10 +46,16 @@ function GalleryColumn({ items, reverse = false, columnIndex = 0 }) {
 }
 
 export default function Gallery() {
-  const columns = Array.from({ length: 4 }, (_, columnIndex) =>
+  const desktopColumns = Array.from({ length: 4 }, (_, columnIndex) =>
     gallery
       .map((src, index) => ({ src, index }))
       .filter(({ index }) => index % 4 === columnIndex)
+  )
+
+  const mobileColumns = Array.from({ length: 2 }, (_, columnIndex) =>
+    gallery
+      .map((src, index) => ({ src, index }))
+      .filter(({ index }) => index % 2 === columnIndex)
   )
 
   return (
@@ -58,10 +64,24 @@ export default function Gallery() {
         <FadeIn>
           <h2 className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary sm:text-lg">Gallery</h2>
         </FadeIn>
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-4 sm:gap-4 lg:gap-5">
-          {columns.map((column, index) => (
+
+        {/* Mobile/tablet: exactly two gallery columns, with all images distributed between them. */}
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-4 lg:hidden">
+          {mobileColumns.map((column, index) => (
             <GalleryColumn
-              key={`gallery-column-${index}`}
+              key={`mobile-gallery-column-${index}`}
+              items={column}
+              columnIndex={index}
+              reverse={index === 1}
+            />
+          ))}
+        </div>
+
+        {/* Desktop: preserve the existing four-column gallery exactly as before. */}
+        <div className="mt-8 hidden grid-cols-4 gap-4 lg:grid lg:gap-5">
+          {desktopColumns.map((column, index) => (
+            <GalleryColumn
+              key={`desktop-gallery-column-${index}`}
               items={column}
               columnIndex={index}
               reverse={index % 2 === 1}
