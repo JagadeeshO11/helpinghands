@@ -5,9 +5,9 @@ import { ChevronDown, ChevronUp, Heart, MessageCircle, Music2, Phone, ShieldChec
 const COLUMNS = [
   { title: "ABOUT US", links: [["About Organization", "/about"], ["Leadership Desk", "/about/leadership"], ["Our Team", "/teams"], ["Volunteers", "/volunteer"], ["Legal Terms", "/about/legal-terms"]] },
   { title: "OUR WORK", links: [["Programs", "/programs"], ["Education", "/programs"], ["Healthcare", "/programs"], ["Food Distribution", "/programs"], ["Women Empowerment", "/programs"]] },
-  { title: "CAMPAIGNS", links: [["Every Child Deserves Education", "/campaigns"], ["Healthy Communities", "/campaigns"], ["Meals With Dignity", "/campaigns"], ["Women Empowerment Initiative", "/campaigns"], ["All Campaigns", "/campaigns"]] },
-  { title: "GET INVOLVED", links: [["Donate", "/donate"], ["Become a Member", "/support-us"], ["Volunteer Registration", "/volunteer"], ["Support Us", "/support-us"], ["Partner With Us", "/contact"]] },
-  { title: "RESOURCE CENTRE", links: [["Reports", "/about/reports"], ["Certificates", "/about/certificates"], ["Photos", "/resources/photos"], ["Videos", "/resources/videos"], ["Achievements & Awards", "/resources/achievements-awards"], ["Press Stories", "/resources/press-stories"], ["Events", "/events"] },
+  { title: "CAMPAIGNS", links: [["Every Child Deserves Education", "/campaigns"], ["Healthy Communities", "/campaigns"], ["Meals With Dignity", "/campaigns"], ["Women Empowerment Initiative", "/campaigns"], ["All Campaigns", "/campaigns"] },
+  { title: "GET INVOLVED", links: [["Donate", "/donate"], ["Become a Member", "/support-us"], ["Volunteer Registration", "/volunteer"], ["Support Us", "/support-us"], ["Partner With Us", "/contact"] },
+  { title: "RESOURCE CENTRE", links: [["Reports", "/about/reports"], ["Certificates", "/about/certificates"], ["Photos", "/resources/photos"], ["Videos", "/resources/videos"], ["Achievements & Awards", "/resources/achievements-awards"], ["Press Stories", "/resources/press-stories"], ["Events", "/events"]] },
 ]
 
 function FooterColumn({ title, links }) {
@@ -40,7 +40,7 @@ export default function Footer() {
 function FloatingActions() {
   return <>
     <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="fixed bottom-4 right-4 z-[180] grid size-14 place-items-center rounded-full bg-[#00d96b] text-white shadow-[0_10px_30px_rgba(0,0,0,.28)] transition hover:scale-105 lg:hidden" aria-label="WhatsApp support"><MessageCircle className="size-7" /></a>
-    <div className="pointer-events-none fixed inset-x-0 bottom-5 z-[180] hidden items-end justify-between px-5 lg:flex xl:px-8">
+    <div className="pointer-events-none fixed inset-x-0 bottom-5 z-[180] hidden lg:flex items-end justify-between px-5 xl:px-8">
       <div className="pointer-events-auto flex items-center gap-3">
         <NavLink to="/volunteer" className="grid size-14 place-items-center rounded-full bg-[#ff9700] text-white shadow-xl transition hover:scale-105" title="Volunteer"><UserRound className="size-6" /></NavLink>
         <NavLink to="/support-us" className="grid size-14 place-items-center rounded-full bg-[#173d73] text-white shadow-xl transition hover:scale-105" title="Get Support"><ShieldCheck className="size-6" /></NavLink>
